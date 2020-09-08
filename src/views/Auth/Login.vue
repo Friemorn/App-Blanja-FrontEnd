@@ -2,7 +2,7 @@
   <div container>
     <div class="login">
       <header>
-        <img src="../assets/shopping-bag 1.png" alt="">
+        <img src="../../assets/shopping-bag 1.png" alt="">
         <span class="title-blanja">Blanja</span>
         <p>Please login with your account</p>
       </header>
@@ -59,6 +59,7 @@ p {
 }
 .role {
   width: 100%;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -87,7 +88,7 @@ p {
   border: 1px solid #9B9B9B;
 }
 .form-group {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .forgot-password {
   color: #273AC7;
