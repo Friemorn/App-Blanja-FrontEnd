@@ -58,7 +58,7 @@ header {
 p {
   margin-top: 20px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 18px;
 }
 .title-blanja {
   font-size: 30px;
