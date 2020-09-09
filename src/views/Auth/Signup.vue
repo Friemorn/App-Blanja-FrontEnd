@@ -6,51 +6,49 @@
         <span class="title-blanja">Blanja</span>
         <p>Please sign up with your account</p>
       </header>
-      <form>
-        <div class="role">
-          <div class="customer inactive">
-            Customer
-          </div>
-          <div class="seller active">
-            Seller
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="name" placeholder="Name">
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="phone" placeholder="Phone Number">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="store" placeholder="Store Name">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="forgot-password">
-            Forgot Password?
-        </div>
-        <button type="submit" class="btn">PRIMARY</button>
-        <div class="no-account">
-          Already have a Blanja account? <span class="signin">Login</span>
-        </div>
-      </form>
+      <div class="login-form">
+        <SignupSeller v-show="seller" @switch-customer = "switchCustomer"/>
+        <SignupCustomer v-show="customer" @switch-seller = "switchSeller"/>
+      </div>
+      <div class="no-account">
+        Already have a Blanja account? <span class="login">Login</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import SignupSeller from '../../components/_base/SignupSeller'
+import SignupCustomer from '../../components/_base/SignupCustomer'
+
 export default {
-  name: 'Login'
+  name: 'Login',
+  components: {
+    SignupSeller,
+    SignupCustomer
+  },
+  data () {
+    return {
+      seller: true,
+      customer: false
+    }
+  },
+  methods: {
+    switchSeller () {
+      this.seller = true
+      this.customer = false
+    },
+    switchCustomer () {
+      this.seller = false
+      this.customer = true
+    }
+  }
 }
 </script>
 
 <style scoped>
 .signup {
-  margin: 20px auto;
+  margin: 40px auto;
   width: 400px;
 }
 header {
@@ -66,59 +64,15 @@ p {
   font-size: 30px;
   color: #273AC7;
 }
-.role {
-  width: 100%;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-}
-.customer {
-  width: 100px;
-  padding: 10px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.seller {
-  width: 100px;
-  padding: 10px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.active {
-  color: white;
-  background-color: #273AC7;
-  border: 1px solid #273AC7;
-}
-.inactive {
-  color: #9B9B9B;
-  background-color: white;
-  border: 1px solid #9B9B9B;
-}
-.form-group {
+.login-form {
   margin-top: 20px;
-}
-.forgot-password {
-  color: #273AC7;
-  text-align: right;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-.btn {
-  width: 100%;
-  color: white;
-  background-color: #273AC7;
-  font-size: 14px;
-  padding: 10px;
-  border-radius: 25px;
 }
 .no-account {
   margin-top: 30px;
   text-align: center;
   font-size: 14px;
 }
-.signin {
+.register {
   color: #273AC7;
 }
 </style>
