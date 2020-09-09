@@ -72,7 +72,7 @@ p {
   text-align: center;
   font-size: 14px;
 }
-.register {
+.login {
   color: #273AC7;
 }
 </style>
