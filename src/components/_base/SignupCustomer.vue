@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="InputNameSeller" placeholder="Name">
+          <input type="text" class="form-control" id="InputNameCustomer" placeholder="Name">
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email">
+          <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password">
+          <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password">
         </div>
         <button type="submit" class="btn" @click="addCustomer">PRIMARY</button>
       </form>
