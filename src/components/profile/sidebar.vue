@@ -8,17 +8,26 @@
         <div class="prof-update d-flex flex-column mx-2" v-for="(profile, index) in profiles" :key="index">
           <!-- <span>Geralt of Rivia</span> -->
           <span>{{profile.name}}</span>
-          <span>Ubah Profile</span>
+          <span class="change" @click="edit(profile)">Ubah Profile</span>
         </div>
       </div>
-      <div class="profile-data">
-        <div class="account">
+      <div class="profile-data ml-5">
+        <div class="account d-flex ml-4">
+          <div class="account-logo">
+            <img src="../../assets/user-profile.png" alt="">
+          </div>
           <span>My Account</span>
         </div>
-        <div class="address">
+        <div class="address d-flex ml-4">
+          <div class="pinpoint">
+            <img src="../../assets/pin.png" alt="">
+          </div>
           <span>Shipping Address</span>
         </div>
-        <div class="order">
+        <div class="order d-flex ml-4">
+          <div class="clipboard">
+            <img src="../../assets/clipboard.png" alt="">
+          </div>
           <span>My Order</span>
         </div>
       </div>
@@ -30,12 +39,28 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'sidebar',
+  components: {
+  },
   data () {
     return {
-      name: '',
-      email: '',
-      phoneNumber: '',
-      gender: ''
+      userData: {
+        name: '',
+        email: '',
+        phoneNumber: '',
+        gender: ''
+      }
+    }
+  },
+  methods: {
+    edit (profile) {
+      console.log(profile)
+      this.userData.name = profile.name
+      this.userData.email = profile.email
+      this.userData.phoneNumber = profile.phoneNumber
+      this.userData.gender = profile.gender
+    },
+    updateProfile () {
+
     }
   },
   computed: {
@@ -57,6 +82,10 @@ export default {
   width: 60px;
   height: 60px;
   object-fit: cover;
+}
+.change {
+  cursor: pointer;
+  text-decoration-line: underline;
 }
 
 </style>

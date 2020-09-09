@@ -1,16 +1,16 @@
 <template>
     <div>
         <h1 class="bg-info">Profile page</h1>
-        <cardProfile/>
+        <profileContainer/>
     </div>
 </template>
 
 <script>
-import cardProfile from '../components/card-profile'
+import profileContainer from '../components/profile/profile-container'
 export default {
   name: 'Profile',
   components: {
-    cardProfile
+    profileContainer
   }
 }
 </script>
