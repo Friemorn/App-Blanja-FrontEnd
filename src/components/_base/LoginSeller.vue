@@ -18,7 +18,7 @@
         <div class="forgot-password">
             Forgot Password?
         </div>
-        <button type="submit" class="btn">PRIMARY</button>
+        <button type="submit" class="btn" @click="handleLogin">PRIMARY</button>
       </form>
   </div>
 </template>
