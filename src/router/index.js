@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Password from '../components/_base/Password.vue'
+import Password from '../views/Auth/Password.vue'
 
 Vue.use(VueRouter)
 
