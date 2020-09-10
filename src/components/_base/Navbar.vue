@@ -59,7 +59,7 @@ export default {
   justify-content: space-between;
 }
 #blanja {
-  color: #273AC7;
+  color: #787983;
   font-size: 24px;
   font-weight: 550;
   padding-top: 10px;
