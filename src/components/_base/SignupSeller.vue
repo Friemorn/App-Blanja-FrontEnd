@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     addSeller () {
-      axios.post('http://localhost:4000/api/v1/seller/signup', {
+      axios.post('http://localhost:3000/api/v1/users/registerseller', {
         name: this.name,
         email: this.email,
         phone: this.phone,

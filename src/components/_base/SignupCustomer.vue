@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     addCustomer () {
-      axios.post('http://localhost:4000/api/v1/customer/signup', {
+      axios.post('http://localhost:3000/api/v1/users/registercustomer', {
         name: this.name,
         email: this.email,
         password: this.password
