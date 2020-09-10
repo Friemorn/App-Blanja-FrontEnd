@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-dark">
-        <div class="card mx-5" style="border:1px solid black;">
-            <div class="card-header d-flex flex-column">
+    <div class="card-template">
+        <div class="card">
+            <div class="card-header">
                 <span class="h4 d-flex">My Profile</span>
                 <span class="d-flex">Manage your profile information</span>
             </div>
@@ -41,6 +41,12 @@
                         </div>
                         <div class="form-group row">
                             <label for="birth" class="col-sm-2 text-left">Date of Birth</label>
+                            <div class="col-sm-10">
+                                <select v-model="data.year">
+                                    <option value="0">Year:</option>
+                                    <option v-for="year in years" :value="year" :key="year.id">{{ year }}</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                     <div class="profile-pict col-lg-2 col-md-4 bg-success px-4">
@@ -61,15 +67,25 @@ export default {
     data: {
       type: Object
     }
+  },
+  computed: {
+    years () {
+      const year = new Date().getFullYear()
+      return Array.from({ length: year - 1900 }, (value, index) => 1901 + index)
+    }
   }
 }
 </script>
 
 <style scoped>
+.card-template {
+    background: #F5F5F5;
+}
 .img-profile img {
     border: 1px solid green;
     width: 111px;
     height: 111px;
     object-fit: cover;
 }
+
 </style>
