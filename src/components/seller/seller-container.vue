@@ -1,0 +1,182 @@
+<template>
+    <div>
+        <div class="wrapper">
+            <div class="seller-profile" style="border:1px solid black">
+              <div class="profile-seller d-flex mx-5 bg-danger">
+                <div class="user-img">
+                  <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
+                </div>
+                <div class="prof-update d-flex flex-column mx-2" v-for="(seller, index) in sellers" :key="index">
+                  <span>{{seller.name}}</span>
+                  <span class="change" @click="edit(seller)">Ubah Profile</span>
+                </div>
+              </div>
+              <div class="profile-data mx-5 mt-5">
+                <div class="account d-flex mb-3 ml-4">
+                  <div class="account-logo img-round mr-3">
+                    <img src="../../assets/store.png">
+                  </div>
+                  <!-- <span class="click" @click="toggle">Store</span> -->
+                  <div class="dropdown">
+                    <nav class="navbar-toggler d-flex" type="button" data-toggle="collapse" data-target="#store">
+                      <span>Store</span>
+                    </nav>
+                    <div class="collapse navbar-collapse" id="store">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#"><small> Profile</small> <span class="sr-only">(current)</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                </div>
+                <div class="address d-flex mb-3 ml-4">
+                  <div class="pinpoint img-round mr-3">
+                    <img src="../../assets/product.png">
+                  </div>
+                  <!-- <span class="click" @click="toggle">Product</span> -->
+                  <div class="dropdown">
+                    <nav class="navbar-toggler d-flex" type="button" data-toggle="collapse" data-target="#product">
+                      <span>Product</span>
+                    </nav>
+                    <div class="collapse navbar-collapse" id="product">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#"><small>My Products</small> <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link ml-3" href="#"><small>Selling products</small></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="order d-flex mb-3 ml-4">
+                  <div class="clipboard img-round mr-3">
+                    <img src="../../assets/cart.png">
+                  </div>
+                  <!-- <span class="click" @click="toggle">Order</span> -->
+                  <div class="dropdown">
+                    <nav class="navbar-toggler d-flex" type="button" data-toggle="collapse" data-target="#order">
+                      <span>Order</span>
+                    </nav>
+                    <div class="collapse navbar-collapse" id="order">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#"><small>My Order</small></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link ml-3" href="#"><small>Order cancel</small></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-seller" v-for="(seller, index) in sellers" :key="index">
+              <storeCard :data="seller"/>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+import storeCard from './store-card'
+export default {
+  name: 'sellerContainer',
+  components: {
+    storeCard
+  },
+  data () {
+    return {
+      showing: 'Store'
+    }
+  },
+  methods: {
+    toggle (e) {
+      console.log(e.target.innerText)
+      this.showing = e.target.innerText
+    },
+    edit (seller) {
+      console.log(seller)
+    }
+  },
+  computed: {
+    ...mapGetters({
+      sellers: 'get_seller',
+      products: 'get_products'
+    })
+  }
+}
+</script>
+
+<style scoped>
+.wrapper {
+  background: #F5F5F5;
+}
+.seller-profile {
+  background: #fff;
+}
+/* Sidebar */
+.user-img {
+  border: 1px solid black;
+  width: 90px;
+  height: 60px;
+}
+.user-img img {
+  border: 1px solid green;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.img-round {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.change {
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+.click {
+  cursor: pointer;
+}
+
+.account-logo {
+  background: #456BF3;
+}
+.pinpoint {
+  background: #F36F45;
+}
+.clipboard {
+  background: #F3456F;
+}
+@media screen and (min-width: 1300px) {
+  .wrapper {
+    display: flex;
+  }
+  .card-seller {
+    flex-grow: 1;
+    margin: 0 90px 0px 50px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .seller-profile {
+    width: 100%;
+  }
+  .card-profile {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+  }
+}
+</style>
