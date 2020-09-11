@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Navbar/>
+    <NavbarBefore/>
+    <NavbarAfter/>
     <div class="container">
       <div class="path">
         Home &gt; category &gt; Shoes
@@ -89,12 +90,14 @@
 </template>
 
 <script>
-import Navbar from '../../components/_base/Navbar'
+import NavbarBefore from '../../components/_base/NavbarBefore'
+import NavbarAfter from '../../components/_base/NavbarAfter'
 
 export default {
   name: 'Product',
   components: {
-    Navbar
+    NavbarBefore,
+    NavbarAfter
   }
 }
 </script>
@@ -102,7 +105,6 @@ export default {
 <style scoped>
 .container {
   width: 80%;
-  border: 1px solid black;
 }
 .path {
   margin: 40px 0;
@@ -112,7 +114,6 @@ export default {
   height: 700px;
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
 }
 .images-product {
   width: 50%;
@@ -126,7 +127,6 @@ export default {
   width: 50%;
   height: 100%;
   padding-left: 30px;
-  border: 1px solid red;
 }
 .image-product {
   width: 263px;

@@ -15,9 +15,9 @@
           <div>
             <img id="icon-search" src="../../assets/search.png" alt="">
           </div>
-        </div>
-        <div class="filter">
-          <img id="icon-filter" src="../../assets/filter.png" alt="">
+          <div class="filter">
+            <img id="icon-filter" src="../../assets/filter.png" alt="">
+          </div>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,15 +25,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <router-link class="cart" to="/cart">
-              <img src="../../assets/cart.png" alt="">
+            <router-link class="cart" to="/mybag">
+              <img src="../../assets/cart.png" alt="mybag">
             </router-link>
-            <router-link class="login" to="/login">
-              <p>Login</p>
-            </router-link>
-            <router-link class="signup" to="/signup">
-              <p>Sign Up</p>
-            </router-link>
+            <div class="notif">
+              <img src="../../assets/notif.png" alt="notif">
+            </div>
+            <div class="mail">
+              <img src="../../assets/mail.png" alt="mail">
+            </div>
+            <div class="user">
+            </div>
           </div>
         </div>
       </div>
@@ -43,11 +45,12 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'NavbarAfter'
 }
 </script>
 
 <style scoped>
+/* Desktop */
 .navbar {
   box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
 }
@@ -90,34 +93,30 @@ export default {
 #icon-filter {
   margin: 5px 5px 0;
 }
-.cart {
+.cart, .mail, .notif, .user {
   height: 35px;
   width: 35px;
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
 }
-.login {
-  height: 35px;
-  width: 100px;
-  margin: 0 10px 0 10px;
-  text-align: center;
-  border-radius: 25px;
-  color: white;
-  background-color: #273AC7;
+.user {
+  border: 2px solid #8E8E93;
+  border-radius: 50%;
+  background-image: url('./../../assets/user.png');
+  background-repeat: no-repeat;
+  background-size: cover
 }
-.login p {
-  padding-top: 5px;
+/* Tablet */
+@media only screen and (max-width: 768px) {
+  .form-control {
+    width: 200px;
+    margin-left: 20px;
+  }
 }
-.signup {
-  height: 35px;
-  width: 100px;
-  margin: 0 10px 0 10px;
-  text-align: center;
-  border-radius: 25px;
-  color: white;
-  border: 1px solid #9B9B9B;
-}
-.signup p {
-  color: #9B9B9B;
-  padding-top: 5px;
+/* Smartphone */
+@media only screen and (max-width: 600px) {
+  .form-control {
+    width: 200px;
+    margin-left: 20px;
+  }
 }
 </style>
