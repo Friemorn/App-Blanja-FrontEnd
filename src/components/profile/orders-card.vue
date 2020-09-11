@@ -46,7 +46,7 @@ export default {
   background: #F5F5F5;
 }
 .card-body {
-  height: 636px;
+  height: 500px;
 }
 .click {
   cursor: pointer;

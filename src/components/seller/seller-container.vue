@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="wrapper">
-            <div class="seller-profile" style="border:1px solid black">
-              <div class="profile-seller d-flex mx-5 bg-danger">
+            <div class="seller-profile">
+              <div class="profile-seller d-flex mx-5">
                 <div class="user-img">
                   <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
                 </div>
@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse" id="store">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small> Profile</small> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="#"><small @click="toggle">Profile</small> <span class="sr-only">(current)</span></a>
                         </li>
                       </ul>
                     </div>
@@ -43,10 +43,10 @@
                     <div class="collapse navbar-collapse" id="product">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small>My Products</small> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="#"><small @click="toggle">My Products</small> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link ml-3" href="#"><small>Selling products</small></a>
+                          <a class="nav-link ml-3" href="#"><small @click="toggle">Selling products</small></a>
                         </li>
                       </ul>
                     </div>
@@ -76,7 +76,11 @@
               </div>
             </div>
             <div class="card-seller" v-for="(seller, index) in sellers" :key="index">
-              <storeCard :data="seller"/>
+              <storeCard v-if="showing==='Profile'" :data="seller"/>
+              <!-- <h1 v-else-if="showing==='My Products'">My Product</h1> -->
+              <productCard v-else-if="showing==='My Products'"/>
+              <!-- <h1 v-else-if="showing==='Selling products'">Selling Product</h1> -->
+              <sellingProduct v-else-if="showing==='Selling products'"/>
             </div>
         </div>
     </div>
@@ -85,14 +89,18 @@
 <script>
 import { mapGetters } from 'vuex'
 import storeCard from './store-card'
+import productCard from './product-card'
+import sellingProduct from './selling-product'
 export default {
   name: 'sellerContainer',
   components: {
-    storeCard
+    storeCard,
+    productCard,
+    sellingProduct
   },
   data () {
     return {
-      showing: 'Store'
+      showing: 'Profile'
     }
   },
   methods: {
@@ -122,12 +130,10 @@ export default {
 }
 /* Sidebar */
 .user-img {
-  border: 1px solid black;
   width: 90px;
   height: 60px;
 }
 .user-img img {
-  border: 1px solid green;
   width: 60px;
   height: 60px;
   object-fit: cover;
@@ -139,6 +145,8 @@ export default {
 }
 .change {
   cursor: pointer;
+}
+.change:hover {
   text-decoration-line: underline;
 }
 .click {

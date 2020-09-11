@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1 class="bg-info">Profile page</h1>
         <profileContainer/>
     </div>
 </template>

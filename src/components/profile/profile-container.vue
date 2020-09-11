@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class="wrapper bg-warning">
-            <div class="profile bg-info" style="border:1px solid black">
-              <div class="profile-user d-flex mx-5 bg-danger">
+        <div class="wrapper">
+            <div class="profile" style="border:1px solid black">
+              <div class="profile-user d-flex mx-5">
                 <div class="user-img">
                   <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
                 </div>
-                <div class="prof-update d-flex flex-column mx-2" v-for="(profile, index) in profiles" :key="index">
+                <div class="prof-update d-flex flex-column mx-2" v-for="profile in profiles" :key="profile.id">
                   <span>{{profile.name}}</span>
                   <span class="change" @click="edit(profile)">Ubah Profile</span>
                 </div>
@@ -24,7 +24,7 @@
                   </div>
                   <span class="click" @click="toggle">Shipping Address</span>
                 </div>
-                <div class="order d-flex ml-4">
+                <div class="order d-flex mb-3 ml-4">
                   <div class="clipboard img-round mr-3">
                     <img src="../../assets/clipboard.png">
                   </div>
@@ -32,7 +32,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-profile" v-for="(profile, index) in profiles" :key="index">
+            <div class="card-profile" v-for="profile in profiles" :key="profile.id">
               <cardProfile v-if="showing==='My Account'" :data="profile"/>
               <addressCard v-else-if="showing==='Shipping Address'" />
               <orderCard v-else-if="showing==='My Order'"/>
@@ -79,14 +79,18 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  background: #F5F5F5;
+}
+.profile {
+  background: #fff;
+}
 /* Sidebar */
 .user-img {
-  border: 1px solid black;
   width: 90px;
   height: 60px;
 }
 .user-img img {
-  border: 1px solid green;
   width: 60px;
   height: 60px;
   object-fit: cover;
@@ -94,11 +98,12 @@ export default {
 .img-round {
   width: 32px;
   height: 32px;
-  border: 1px solid black;
   border-radius: 50%;
 }
 .change {
   cursor: pointer;
+}
+.change:hover {
   text-decoration-line: underline;
 }
 .click {
