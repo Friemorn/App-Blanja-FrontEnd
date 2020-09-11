@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavbarBefore/>
-    <NavbarAfter/>
+    <!-- <NavbarAfter/> -->
     <div class="container">
       <div class="path">
         Home &gt; category &gt; Shoes
@@ -56,17 +56,17 @@
             <div class="size">
               <p>Size</p>
               <div class="count">
-                <img src="../../assets/Ellipse 9.png" alt="min">
+                <img src="../../assets/min.png" alt="min">
                 <div class="count-size">28</div>
-                <img src="../../assets/Ellipse 13.png" alt="min">
+                <img src="../../assets/plus.png" alt="plus">
               </div>
             </div>
             <div class="qty">
-              <p>Quantity</p>
+              <p>Jumlah</p>
               <div class="count">
-                <img src="../../assets/Ellipse 9.png" alt="min">
+                <img src="../../assets/min.png" alt="min">
                 <div class="count-qty">1</div>
-                <img src="../../assets/Ellipse 13.png" alt="min">
+                <img src="../../assets/plus.png" alt="plus">
               </div>
             </div>
           </div>
@@ -85,19 +85,35 @@
           </div>
         </div>
       </div>
+      <div class="information">
+        <h3>Informasi Produk</h3><br>
+        <h5>Condition</h5>
+        <h5 class="condition">New</h5><br>
+        <h5>Description</h5>
+        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque officiis illo placeat reiciendis ipsum ullam eos vel debitis, assumenda beatae sed eius ea repellendus voluptates. Tempore cum quibusdam perferendis quas.</p>
+      </div>
+      <div class="product-review">
+        <h3>Product Review</h3><br>
+        <img src="../../assets/review.jpg" alt="">
+      </div>
+      <div class="recomendation">
+        <h1>You can also like this</h1>
+        <p>You've never seen it before!</p>
+        <div class="product-recomendation"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import NavbarBefore from '../../components/_base/NavbarBefore'
-import NavbarAfter from '../../components/_base/NavbarAfter'
+// import NavbarAfter from '../../components/_base/NavbarAfter'
 
 export default {
   name: 'Product',
   components: {
-    NavbarBefore,
-    NavbarAfter
+    NavbarBefore
+    // NavbarAfter
   }
 }
 </script>
@@ -121,7 +137,8 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 100%;
+  height: 700px;
+  overflow: auto;
 }
 .buy-product {
   width: 50%;
@@ -141,7 +158,7 @@ export default {
   font-size: 28px;
   font-weight: 600;
 }
-.merk, .price {
+.merk, .price, .desc {
   color: #9B9B9B;
 }
 .rating {
@@ -193,6 +210,10 @@ export default {
   display: flex;
   flex-direction: row;
 }
+.count img {
+  height: 36px;
+  width: 36px;
+}
 .count-size, .count-qty {
   margin: auto;
   font-size: 20px;
@@ -227,5 +248,22 @@ export default {
   border-radius: 25px;
   color: white;
   background-color: #273AC7;
+}
+.information {
+  margin: 40px auto;
+}
+.information h3 {
+  font-weight: 600;
+}
+.condition {
+  color: red;
+}
+.recomendation {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid gray;
+}
+.recomendation p {
+  color: #9B9B9B;
 }
 </style>
