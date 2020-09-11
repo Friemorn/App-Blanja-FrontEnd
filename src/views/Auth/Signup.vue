@@ -7,8 +7,52 @@
         <p>Please sign up with your account</p>
       </header>
       <div class="login-form">
-        <SignupSeller v-show="seller" @switch-customer = "switchCustomer"/>
-        <SignupCustomer v-show="customer" @switch-seller = "switchSeller"/>
+        <form v-show="seller">
+          <div class="role">
+            <div class="customer inactive" @click="switchCustomer">
+              Customer
+            </div>
+            <div class="seller active">
+              Seller
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="InputNameSeller" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="InputPhoneSeller" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="InputStoreSeller" placeholder="Store Name">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password">
+          </div>
+          <button type="submit" class="btn" @click="addSeller">PRIMARY</button>
+        </form>
+        <form v-show="customer">
+          <div class="role">
+            <div class="customer active">
+              Customer
+            </div>
+            <div class="seller inactive" @click="switchSeller">
+              Seller
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="InputNameCustomer" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password">
+          </div>
+          <button type="submit" class="btn" @click="addCustomer">PRIMARY</button>
+        </form>
       </div>
       <div class="no-account">
         Already have a Blanja account? <span class="login">Login</span>
@@ -18,22 +62,54 @@
 </template>
 
 <script>
-import SignupSeller from '../../components/_base/SignupSeller'
-import SignupCustomer from '../../components/_base/SignupCustomer'
+import axios from 'axios'
 
 export default {
   name: 'Login',
-  components: {
-    SignupSeller,
-    SignupCustomer
-  },
   data () {
     return {
       seller: true,
-      customer: false
+      customer: false,
+      name: '',
+      email: '',
+      phone: '',
+      store: '',
+      password: ''
     }
   },
   methods: {
+    addSeller () {
+      axios.post('http://localhost:3000/api/v1/users/registerseller', {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        store: this.store,
+        password: this.password
+      })
+        .then((res) => {
+          // this.$swal('Register Success', 'User Added Successfully', 'success')
+          alert('User Added Successfully')
+        })
+        .catch((res) => {
+          // this.$swal('Warning!', 'User Already Registered', 'warning')
+          alert('User Already Registered')
+        })
+    },
+    addCustomer () {
+      axios.post('http://localhost:3000/api/v1/users/registercustomer', {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      })
+        .then((res) => {
+          // this.$swal('Register Success', 'User Added Successfully', 'success')
+          alert('User Added Successfully')
+        })
+        .catch((res) => {
+          // this.$swal('Warning!', 'User Already Registered', 'warning')
+          alert('User Already Registered')
+        })
+    },
     switchSeller () {
       this.seller = true
       this.customer = false
@@ -74,5 +150,49 @@ p {
 }
 .login {
   color: #273AC7;
+}
+.role {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+.customer {
+  width: 100px;
+  padding: 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.seller {
+  width: 100px;
+  padding: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.active {
+  color: white;
+  background-color: #273AC7;
+  border: 1px solid #273AC7;
+}
+.inactive {
+  color: #9B9B9B;
+  background-color: white;
+  border: 1px solid #9B9B9B;
+}
+.btn {
+  width: 100%;
+  color: white;
+  background-color: #273AC7;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 25px;
+}
+.forgot-password {
+  color: #273AC7;
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 </style>
