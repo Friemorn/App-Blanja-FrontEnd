@@ -17,19 +17,19 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="InputNameSeller" placeholder="Name">
+            <input type="text" class="form-control" id="InputNameSeller" placeholder="Name" v-model="name">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email" v-model="email">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="InputPhoneSeller" placeholder="Phone Number">
+            <input type="text" class="form-control" id="InputPhoneSeller" placeholder="Phone Number" v-model="phoneNumber">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="InputStoreSeller" placeholder="Store Name">
+            <input type="text" class="form-control" id="InputStoreSeller" placeholder="Store Name" v-model="storeName">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password">
+            <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password" v-model="password">
           </div>
           <button type="submit" class="btn" @click="addSeller">PRIMARY</button>
         </form>
@@ -43,13 +43,13 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="InputNameCustomer" placeholder="Name">
+            <input type="text" class="form-control" id="InputNameCustomer" placeholder="Name" v-model="name">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email" v-model="email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password">
+            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="password">
           </div>
           <button type="submit" class="btn" @click="addCustomer">PRIMARY</button>
         </form>
@@ -65,15 +65,15 @@
 import axios from 'axios'
 
 export default {
-  name: 'Login',
+  name: 'Signup',
   data () {
     return {
       seller: true,
       customer: false,
       name: '',
       email: '',
-      phone: '',
-      store: '',
+      phoneNumber: '',
+      storeName: '',
       password: ''
     }
   },
@@ -82,8 +82,8 @@ export default {
       axios.post('http://localhost:3000/api/v1/users/registerseller', {
         name: this.name,
         email: this.email,
-        phone: this.phone,
-        store: this.store,
+        phoneNumber: this.phone,
+        storeName: this.store,
         password: this.password
       })
         .then((res) => {
