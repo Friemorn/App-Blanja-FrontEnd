@@ -2,6 +2,7 @@
 <div class="container-fluid">
   <div class="row no-gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <CarouselTrend/>
     </div>
   </div>
   <div class="row no-gutters">
@@ -51,10 +52,12 @@
 
 <script>
 import CardProduct from '../../components/_base/CardProduct'
+import CarouselTrend from '../../components/_base/CarouselTrend'
 export default {
   name: 'Homepage',
   components: {
-    CardProduct
+    CardProduct,
+    CarouselTrend
   }
 }
 </script>
