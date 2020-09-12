@@ -1,29 +1,30 @@
 <template>
 <div class="row no-gutters content">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
-        <h4 class="mx-2">Checkout</h4>
+        <h4 class="mx-2">My Bag</h4>
         <div class="row no-gutters">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
                 <div class="row no-gutters shadow px-3 py-1 d-flex align-items-center mr-3 rounded">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="row no-gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 name">
-                                Andreas Jane
-                            </div>
-                        </div>
-                        <div class="row no-gutters mt-2">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 address">
-                                Perumahan Sapphire Mediterania, Wiradadi, Kec. Sokaraja, Kabupaten Banyumas, Jawa Tengah, 53181 [Tokopedia Note: blok c 16] Sokaraja, Kab. Banyumas, 53181
-                            </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 button mt-4 mb-2">
-                                <button type="button" class="btn btn-outline-dark">Choose another address</button>
-                            </div>
-                        </div>
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                        <label class="container">
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="select">Select all items<span> ( 2 items selected )</span></div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
                     </div>
                 </div>
                 <div class="row no-gutters shadow mt-3 px-3 py-1 d-flex align-items-center mr-3 rounded">
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                        <label class="container">
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
                         <div class="row no-gutters d-flex align-items-center">
                             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
@@ -39,6 +40,13 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">Zalora Cloth</div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                <div class="row no-gutters d-flex align-items-center">
+                                    <button class="col minus">-</button>
+                                    <div class="col control-num text-center"> 1 </div>
+                                    <button class="col plus">+</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-right">
@@ -50,50 +58,20 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                 <div class="row no-gutters shadow px-3 py-3 rounded">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="row no-gutters">
-                            <h5 class="title">Shooping summary</h5>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
-                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Delivery</div>
-                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
-                        </div>
-                        <div class="row no-gutters mb-2">
-                            <hr>
-                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 title">Shooping summary</div>
-                            <div class="price-sum col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">Rp. 10.000</div>
-                        </div>
-                        <div class="row no-gutters">
-                            <button type="button" class="btn btn-danger" @click="toggleModal">Select payment</button>
-                        </div>
-                    </div>
+                    <h5 class="title">Shooping summary</h5>
+                    <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
+                    <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
+                    <button type="button" class="btn btn-danger mt-4">Buy</button>
                 </div>
             </div>
         </div>
     </div>
-    <ModalCheckout v-show="modalActive" @close-modal="toggleModal"/>
 </div>
 </template>
 
 <script>
-import ModalCheckout from '../../components/_base/ModalCheckout'
 export default {
-  name: 'Checkout',
-  components: {
-    ModalCheckout
-  },
-  data: () => ({
-    modalActive: false
-  }),
-  methods: {
-    toggleModal () {
-      this.modalActive = !this.modalActive
-    }
-  }
+  name: 'MyBag'
 }
 </script>
 
@@ -107,7 +85,7 @@ h4{
   letter-spacing: 1px;
 }
 .title{
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
     letter-spacing: 1px;
 }
@@ -128,11 +106,6 @@ h4{
 }
 .btn-outline-danger{
     border: none;
-}
-.btn-outline-dark{
-    width: 40%;
-    border-radius: 25px;
-    letter-spacing: 1px;
 }
 .container {
   display: block;
@@ -240,22 +213,5 @@ h4{
     border: none;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
-}
-hr{
-    width: 100%;
-    height: 2px;
-    border-color:  #D5D5D5;
-}
-.name{
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-.address{
-    letter-spacing: 1px;
-    font-size: 14px;
-}
-.price-sum {
-    color: #DB3022;
-    font-weight: 600;
 }
 </style>
