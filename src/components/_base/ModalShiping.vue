@@ -14,7 +14,7 @@
                     <div class="modal-body">
                         <div class="row no-guttersd-flex justify-content-center">
                             <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 text-right title-modal">
-                                <button type="button" class="btn btn-outline-secondary">Add new address</button>
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#address">Add new address</button>
                             </div>
                         </div>
                     </div>
@@ -28,16 +28,27 @@
                 </div>
             </div>
         </div>
+        <ModalAddress/>
     </div>
 </transition>
 </template>
 
 <script>
 import AddressList from '../../components/_base/AddressList'
+import ModalAddress from '../profile/modal-address'
 export default {
   name: 'ModalShiping',
   components: {
-    AddressList
+    AddressList,
+    ModalAddress
+  },
+  data: () => ({
+    modalAddAddress: false
+  }),
+  methods: {
+    toggleAddAddress () {
+      this.modalAddAddress = !this.modalAddAddress
+    }
   }
 }
 </script>
