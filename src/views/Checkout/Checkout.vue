@@ -18,7 +18,7 @@
                         </div>
                         <div class="row no-gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 button mt-4 mb-2">
-                                <button type="button" class="btn btn-outline-dark">Choose another address</button>
+                                <button type="button" class="btn btn-outline-dark" @click="toggleModalShiping">Choose another address</button>
                             </div>
                         </div>
                     </div>
@@ -68,30 +68,37 @@
                             <div class="price-sum col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">Rp. 10.000</div>
                         </div>
                         <div class="row no-gutters">
-                            <button type="button" class="btn btn-danger" @click="toggleModal">Select payment</button>
+                            <button type="button" class="btn btn-danger" @click="toggleModalCheckout">Select payment</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <ModalCheckout v-show="modalActive" @close-modal="toggleModal"/>
+    <ModalCheckout v-show="modalCheckoutActive" @close-modal="toggleModalCheckout"/>
+    <ModalShiping v-show="modalShipingActive" @close-modal="toggleModalShiping"/>
 </div>
 </template>
 
 <script>
 import ModalCheckout from '../../components/_base/ModalCheckout'
+import ModalShiping from '../../components/_base/ModalShiping'
 export default {
   name: 'Checkout',
   components: {
-    ModalCheckout
+    ModalCheckout,
+    ModalShiping
   },
   data: () => ({
-    modalActive: false
+    modalCheckoutActive: false,
+    modalShipingActive: false
   }),
   methods: {
-    toggleModal () {
-      this.modalActive = !this.modalActive
+    toggleModalCheckout () {
+      this.modalCheckoutActive = !this.modalCheckoutActive
+    },
+    toggleModalShiping () {
+      this.modalShipingActive = !this.modalShipingActive
     }
   }
 }
