@@ -17,10 +17,10 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" id="InputEmailSeller" aria-describedby="emailHelp" placeholder="Email" v-model="email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password">
+            <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password" v-model="password">
           </div>
           <div class="forgot-password">
               Forgot Password?
@@ -37,10 +37,10 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email" v-model="email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password">
+            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="email">
           </div>
           <div class="forgot-password">
               Forgot Password?
