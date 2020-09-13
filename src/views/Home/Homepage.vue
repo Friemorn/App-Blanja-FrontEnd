@@ -27,13 +27,8 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-left d-flex flex-wrap">
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
+        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 text-left d-flex flex-wrap" v-for="(item) in allProducts" :key="item.idProduct">
+          <CardProduct/>
         </div>
       </div>
     </div>
@@ -47,11 +42,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-xl-12 col-lg-12 col-md-2 col-sm-6 col-12 text-left d-flex flex-wrap">
-          <CardProduct/>
-          <CardProduct/>
-          <CardProduct/>
-          <CardProduct/>
+        <div class="col-xl-2 col-lg-12 col-md-2 col-sm-6 col-12 text-left d-flex flex-wrap" v-for="(item) in allProducts" :key="item.idProduct">
           <CardProduct/>
         </div>
       </div>
@@ -64,12 +55,22 @@
 import CardProduct from '../../components/_base/CardProduct'
 import CarouselTrend from '../../components/_base/CarouselTrend'
 import CarouselCategory from '../../components/_base/CarouselCategory'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Homepage',
   components: {
     CardProduct,
     CarouselTrend,
     CarouselCategory
+  },
+  methods: {
+    ...mapActions(['getAllProducts'])
+  },
+  computed: {
+    ...mapGetters(['allProducts'])
+  },
+  mounted () {
+    this.getAllProducts()
   }
 }
 </script>

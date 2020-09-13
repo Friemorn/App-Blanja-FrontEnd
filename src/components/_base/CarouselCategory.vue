@@ -7,23 +7,23 @@
   >
   <slide class="slide">
     <img src="../../assets/hiclipart 15.png" alt="">
-    <label for="slide">Black Edition</label>
+    <label for="slide">T-Shirt</label>
   </slide>
   <slide class="slide">
     <img src="../../assets/hiclipart 21.png" alt="">
-    <label for="slide">Black Edition</label>
+    <label for="slide">Shorts</label>
   </slide>
   <slide class="slide">
     <img src="../../assets/hiclipart 22.png" alt="">
-    <label for="slide">Black Edition</label>
+    <label for="slide">Jacket</label>
   </slide>
   <slide class="slide">
     <img src="../../assets/hiclipart 26.png" alt="">
-    <label for="slide">Black Edition</label>
+    <label for="slide">Pants</label>
   </slide>
   <slide class="slide">
     <img src="../../assets/hiclipart 26.png" alt="">
-    <label for="slide">Black Edition</label>
+    <label for="slide">hoodie</label>
   </slide>
 </carousel>
 </template>
@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style scoped>
+.carousel{
+  width: 95%;
+}
 .VueCarousel-slide {
   min-width: 70px;
   position: relative;

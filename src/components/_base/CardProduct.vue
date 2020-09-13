@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .image-container{
     width: 100%;
-    height: 180px;
+    height: 160px;
 }
 .image-container img {
     border-radius: 10px 10px 0 0;
@@ -39,8 +39,8 @@ export default {
 }
 .card {
     border: none;
-    flex-basis: 18%;
-    margin: 15px 15px 15px 0;
+    flex-basis: 100%;
+    margin: 10px 10px 10px 0;
 }
 
 .card-body{
@@ -55,7 +55,7 @@ export default {
 }
 
 .title-product {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
 }
 .branch-product{
