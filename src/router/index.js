@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LandingHome from '../views/Home/LandingHome.vue'
-import Homepage from '../views/Home/Homepage.vue'
-import Category from '../views/Category/Category.vue'
-import Login from '../views/Auth/Login.vue'
-import Signup from '../views/Auth/Signup.vue'
+import Checkout from '../views/Checkout/Checkout.vue'
 import Mybag from '../views/Mybag/Mybag.vue'
-import Product from '../views/Product/Product.vue'
+import Profile from '../views/profile.vue'
+import Seller from '../views/seller.vue'
 
 Vue.use(VueRouter)
 
@@ -37,6 +34,11 @@ const routes = [
     component: Signup
   },
   {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout
+  },
+  {
     path: '/mybag',
     name: 'Mybag',
     component: Mybag
@@ -45,6 +47,16 @@ const routes = [
     path: '/product',
     name: 'Product',
     component: Product
+  },
+  {
+    path: '/seller',
+    name: 'Seller',
+    component: Seller
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   }
 ]
 

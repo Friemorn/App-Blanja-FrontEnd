@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+<<<<<<< HEAD
 import axios from 'axios'
 import router from '../router/index'
+=======
+import profile from './profile'
+import seller from './seller'
+>>>>>>> e5302511a44e9d465f065171fd74cb0046abc21e
 
 Vue.use(Vuex)
 
@@ -104,5 +109,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
+    profile,
+    seller
   }
 })
