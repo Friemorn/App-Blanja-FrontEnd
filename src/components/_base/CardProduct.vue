@@ -11,11 +11,7 @@
             </div>
         </a>
         <div class="ratting-product">
-<<<<<<< HEAD
             <Rating :grade="3" :maxStars="5" :hasCounter="true"/>
-=======
-            <Rating :grade="5" :maxStars="5" :hasCounter="true"/>
->>>>>>> c4c33ac93b0acc52c51d6a22376f7baca30a64f6
         </div>
     </div>
 </template>
@@ -26,12 +22,6 @@ export default {
   name: 'CardProduct',
   components: {
     Rating
-<<<<<<< HEAD
-  },
-  beforeCreate: function () {
-    document.body.className = 'home'
-=======
->>>>>>> c4c33ac93b0acc52c51d6a22376f7baca30a64f6
   }
 }
 </script>
