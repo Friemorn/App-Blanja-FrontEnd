@@ -81,7 +81,7 @@ export default {
   height: 23px;
   width: 23px;
   margin-top: 7px;
-  margin-left: -45px;
+  margin-left: -65px;
 }
 .filter {
   height: 35px;

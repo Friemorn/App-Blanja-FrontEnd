@@ -84,7 +84,7 @@ export default new Vuex.Store({
     loginCustomer (setex, payload) {
       console.log(payload)
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v1/users/logincustomer', payload)
+        axios.post('http://localhost:3000/api/v1/users/login', payload)
           .then((res) => {
             console.log(res)
             setex.commit('setCustomer', res.data.result)
