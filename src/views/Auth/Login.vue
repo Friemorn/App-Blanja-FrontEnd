@@ -40,7 +40,7 @@
             <input type="email" class="form-control" id="InputEmailCustomer" aria-describedby="emailHelp" placeholder="Email" v-model="email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="email">
+            <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="password">
           </div>
           <div class="forgot-password">
               Forgot Password?
