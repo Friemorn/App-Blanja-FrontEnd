@@ -65,18 +65,20 @@ export default {
       seller: true,
       customer: false,
       email: '',
-      password: ''
+      password: '',
+      roleId: ''
     }
   },
   methods: {
-    ...mapActions(['loginSeller', 'loginCustomer']),
+    ...mapActions(['login']),
     handleLoginSeller (e) {
       e.preventDefault()
       const data = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'seller'
       }
-      this.loginSeller(data)
+      this.login(data)
         .then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
@@ -101,9 +103,10 @@ export default {
       e.preventDefault()
       const data = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'customer'
       }
-      this.loginCustomer(data)
+      this.login(data)
         .then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
