@@ -72,22 +72,6 @@ export default new Vuex.Store({
         return Promise.reject(error)
       })
     },
-    // loginSeller (setex, payload) {
-    //   console.log(payload)
-    //   return new Promise((resolve, reject) => {
-    //     axios.post('http://localhost:4000/api/v1/users/loginseller', payload)
-    //       .then((res) => {
-    //         console.log(res)
-    //         setex.commit('setSeller', res.data.result)
-    //         localStorage.setItem('token', res.data.result.token)
-    //         resolve(res.data.result[0])
-    //       })
-    //       .catch((err) => {
-    //         console.log(err)
-    //         reject(err)
-    //       })
-    //   })
-    // },
     login (setex, payload) {
       console.log(payload)
       return new Promise((resolve, reject) => {
@@ -102,6 +86,13 @@ export default new Vuex.Store({
             console.log(err)
             reject(err)
           })
+      })
+    },
+    logout () {
+      return new Promise((resolve, reject) => {
+        if (this.state.token !== null) {
+          localStorage.removeItem('token')
+        }
       })
     }
   },

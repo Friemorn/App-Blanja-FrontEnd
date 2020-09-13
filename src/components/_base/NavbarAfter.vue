@@ -2,12 +2,14 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <div class="logo">
-          <div>
-            <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+        <router-link class="landinghome" to="/homepage">
+          <div class="logo">
+            <div>
+              <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+            </div>
+            <div id="blanja">Blanja</div>
           </div>
-          <div id="blanja">Blanja</div>
-        </div>
+        </router-link>
         <div class="search">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -34,6 +36,9 @@
             <div class="mail">
               <img src="../../assets/mail.png" alt="mail">
             </div>
+            <div class="logout" @click="handleLogout">
+              <img src="../../assets/logout.png" alt="logout">
+            </div>
             <div class="user">
             </div>
           </div>
@@ -44,14 +49,36 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'NavbarAfter'
+  name: 'NavbarAfter',
+  methods: {
+    ...mapActions(['logout']),
+    handleLogout () {
+      this.$swal.fire({
+        title: 'Are you sure want to logout?',
+        text: 'You will be return to the landing page',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Logout'
+      }).then((result) => {
+        if (result.value) {
+          this.logout()
+          this.$router.go(0)
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style scoped>
 /* Desktop */
 .navbar {
+  margin-bottom: 40px;
   box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
 }
 .logo {
@@ -62,9 +89,9 @@ export default {
   justify-content: space-between;
 }
 #blanja {
-  color: #787983;
+  color: #273AC7;
   font-size: 24px;
-  font-weight: 550;
+  font-weight: 600;
   padding-top: 10px;
 }
 .search {
@@ -93,7 +120,7 @@ export default {
 #icon-filter {
   margin: 5px 5px 0;
 }
-.cart, .mail, .notif, .user {
+.cart, .mail, .notif, .logout, .user {
   height: 35px;
   width: 35px;
   margin: 0 10px;

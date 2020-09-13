@@ -1,83 +1,93 @@
 <template>
-<div class="row no-gutters content">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
-        <h4 class="mx-2">My Bag</h4>
-        <div class="row no-gutters">
-            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                <div class="row no-gutters shadow px-3 py-1 d-flex align-items-center mr-3 rounded">
-                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                        <label class="container">
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+<div>
+    <NavbarAfter/>
+  <div class="container">
+    <div class="row no-gutters content">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
+            <h4 class="mx-2">My Bag</h4>
+            <div class="row no-gutters">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                    <div class="row no-gutters shadow px-3 py-1 d-flex align-items-center mr-3 rounded">
+                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                            <label class="container">
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                            <div class="select">Select all items<span> ( 2 items selected )</span></div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </div>
                     </div>
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                        <div class="select">Select all items<span> ( 2 items selected )</span></div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
-                    </div>
-                </div>
-                <div class="row no-gutters shadow mt-3 px-3 py-1 d-flex align-items-center mr-3 rounded">
-                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                        <label class="container">
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                        <div class="row no-gutters d-flex align-items-center">
-                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                                <div class="container-img">
-                                    <img src="../../assets/dummy.png" alt="dumy">
+                    <div class="row no-gutters shadow mt-3 px-3 py-1 d-flex align-items-center mr-3 rounded">
+                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                            <label class="container">
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                            <div class="row no-gutters d-flex align-items-center">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                                    <div class="container-img">
+                                        <img src="../../assets/dummy.png" alt="dumy">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
-                                <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-product">Men's formal suit - Black</div>
+                                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                                    <div class="row no-gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-product">Men's formal suit - Black</div>
+                                    </div>
+                                    <div class="row no-gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">Zalora Cloth</div>
+                                    </div>
                                 </div>
-                                <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">Zalora Cloth</div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                <div class="row no-gutters d-flex align-items-center">
-                                    <button class="col minus">-</button>
-                                    <div class="col control-num text-center"> 1 </div>
-                                    <button class="col plus">+</button>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                    <div class="row no-gutters d-flex align-items-center">
+                                        <button class="col minus">-</button>
+                                        <div class="col control-num text-center"> 1 </div>
+                                        <button class="col plus">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-right">
-                        <div class="row no-gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 price text-right"> Rp. 12.000</div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-right">
+                            <div class="row no-gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 price text-right"> Rp. 12.000</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-                <div class="row no-gutters shadow px-3 py-3 rounded">
-                    <h5 class="title">Shooping summary</h5>
-                    <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
-                    <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
-                    <button type="button" class="btn btn-danger mt-4">Buy</button>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="row no-gutters shadow px-3 py-3 rounded">
+                        <h5 class="title">Shooping summary</h5>
+                        <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
+                        <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
+                        <button type="button" class="btn btn-danger mt-4">Buy</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+  </div>
 </div>
 </template>
 
 <script>
+import NavbarAfter from '../../components/_base/NavbarAfter'
+
 export default {
-  name: 'MyBag'
+  name: 'MyBag',
+  components: {
+    NavbarAfter
+  }
 }
 </script>
 
 <style scoped>
 .content{
-    margin: 0 130px;
+    margin: 0 auto;
 }
 h4{
   font-weight: 700;
