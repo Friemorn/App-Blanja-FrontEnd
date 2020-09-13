@@ -10,6 +10,7 @@ import Category from '../views/Category/Category.vue'
 import Login from '../views/Auth/Login.vue'
 import Signup from '../views/Auth/Signup.vue'
 import Product from '../views/Product/Product.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -17,12 +18,14 @@ const routes = [
   {
     path: '/',
     name: 'LandingHome',
-    component: LandingHome
+    component: LandingHome,
+    meta: { requiresVisitor: true }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: { requiresVisitor: true }
   },
   {
     path: '/category',
@@ -32,12 +35,14 @@ const routes = [
   {
     path: '/homepage',
     name: 'Homepage',
-    component: Homepage
+    component: Homepage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/signup',
     name: 'Signup',
-    component: Signup
+    component: Signup,
+    meta: { requiresVisitor: true }
   },
   {
     path: '/checkout',
@@ -70,6 +75,28 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.isLogin) {
+      next({
+        path: '/'
+      })
+    } else {
+      next()
+    }
+  } else if (to.matched.some(record => record.meta.requiresVisitor)) {
+    if (store.getters.isLogin) {
+      next({
+        path: '/homepage'
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
