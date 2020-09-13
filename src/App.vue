@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/profile">Profile</router-link> |
+      <router-link to="/seller">Seller</router-link>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -17,7 +23,6 @@ src: url('../src/assets/font/Metropolis-Light.otf');
 font-family: 'Metropolis-Medium';
 src: url('../src/assets/font/Metropolis-Medium.otf');
 }
-
 #app {
   font-family: 'Metropolis-Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
