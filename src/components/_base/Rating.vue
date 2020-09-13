@@ -6,9 +6,7 @@
       </li>
     </ul>
     <div v-if="hasCounter" class="info counter">
-      <span class="score-rating">{{ stars }}</span>
-      <span class="divider">/</span>
-      <span class="score-max">{{ maxStars }}</span>
+      <span class="score-rating">({{ stars*2 }})</span>
     </div>
   </div>
 </template>
@@ -37,7 +35,7 @@ export default {
 .rating {
   display: flex;
   align-items: center;
-  padding: 50px;
+  padding: 5px;
   color: #b7b7b7;
   background: #fff;
   border-radius: 8px;
@@ -45,14 +43,14 @@ export default {
 }
 .rating .list {
   padding: 0;
-  margin: 0 20px 0 0;
+  margin: 0 5px 0 0;
 }
 .rating .list:hover .star {
   color: #ffe100;
 }
 .rating .list .star {
   display: inline-block;
-  font-size: 42px;
+  font-size: 18px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -66,17 +64,17 @@ export default {
   color: #ffe100;
 }
 .rating .info {
-  margin-top: 15px;
-  font-size: 40px;
+  margin-top: 5px;
+  font-size: 18px;
   text-align: center;
   display: table;
 }
 .rating .info .divider {
-  margin: 0 5px;
-  font-size: 30px;
+  margin: 0 1px;
+  font-size: 18px;
 }
 .rating .info .score-max {
-  font-size: 30px;
-  vertical-align: sub;
+  font-size: 18px;
+  vertical-align: middle;
 }
 </style>

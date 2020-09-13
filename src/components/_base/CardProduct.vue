@@ -11,7 +11,7 @@
             </div>
         </a>
         <div class="ratting-product">
-            <Rating :grade="3" :maxStars="5" :hasCounter="true"/>
+            <Rating :grade="5" :maxStars="5" :hasCounter="true"/>
         </div>
     </div>
 </template>
