@@ -4,7 +4,7 @@
           <div class="card-header">
             <span class="d-flex">My Order</span>
             <div class="list d-flex justify-content-between">
-              <span class="click" @click="toggle">All items</span>
+              <span class="click" @click="toggle" v-bind:class="active">All items</span>
               <span class="click" @click="toggle">Not yet paid</span>
               <span class="click" @click="toggle">Packed</span>
               <span class="click" @click="toggle">Sent</span>
@@ -29,7 +29,8 @@ export default {
   name: 'orderCard',
   data () {
     return {
-      showing: 'All items'
+      showing: 'All items',
+      active: 'active'
     }
   },
   methods: {
@@ -50,5 +51,8 @@ export default {
 }
 .click {
   cursor: pointer;
+}
+div.list span.active {
+  border-bottom: 2px solid skyblue
 }
 </style>
