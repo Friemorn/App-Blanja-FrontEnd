@@ -10,13 +10,19 @@
                 <div class="branch-product my-2"> Zalora Cloth</div>
             </div>
         </a>
-        <div class="ratting-product">sdn</div>
+        <div class="ratting-product">
+            <Rating :grade="3" :maxStars="5" :hasCounter="true"/>
+        </div>
     </div>
 </template>
 
 <script>
+import Rating from '../_base/Rating'
 export default {
-  name: 'CardProduct'
+  name: 'CardProduct',
+  components: {
+    Rating
+  }
 }
 </script>
 
