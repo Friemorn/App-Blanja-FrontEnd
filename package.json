@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-<<<<<<< HEAD
-=======
     "bootstrap": "^4.5.2",
->>>>>>> e5302511a44e9d465f065171fd74cb0046abc21e
     "core-js": "^3.6.5",
+<<<<<<< HEAD
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
+=======
+>>>>>>> c4c33ac93b0acc52c51d6a22376f7baca30a64f6
     "sass-loader": "^10.0.2",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
