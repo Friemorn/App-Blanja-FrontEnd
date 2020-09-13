@@ -29,13 +29,23 @@ export default {
   name: 'orderCard',
   data () {
     return {
-      showing: 'All items'
+      showing: 'All items',
+      active: false,
+      one: false
     }
   },
   methods: {
     toggle (e) {
       console.log(e.target.innerText)
       this.showing = e.target.innerText
+    }
+  },
+  computed: {
+    classess () {
+      return {
+        active: this.active,
+        one: this.one
+      }
     }
   }
 }
@@ -50,5 +60,8 @@ export default {
 }
 .click {
   cursor: pointer;
+}
+.active {
+  border-bottom: 2px solid blue;
 }
 </style>
