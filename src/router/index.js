@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< HEAD
 import Checkout from '../views/Checkout/Checkout.vue'
 import Mybag from '../views/Mybag/Mybag.vue'
 import Profile from '../views/profile.vue'
@@ -11,11 +12,15 @@ import Login from '../views/Auth/Login.vue'
 import Signup from '../views/Auth/Signup.vue'
 import Product from '../views/Product/Product.vue'
 import store from '../store/index'
+=======
+import Password from '../views/Auth/Password.vue'
+>>>>>>> password
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+<<<<<<< HEAD
     path: '/',
     name: 'LandingHome',
     component: LandingHome,
@@ -68,6 +73,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+=======
+    path: '/password',
+    name: 'Password',
+    component: Password
+>>>>>>> password
   }
 ]
 
