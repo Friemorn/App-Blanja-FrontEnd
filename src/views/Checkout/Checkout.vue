@@ -1,5 +1,7 @@
 <template>
-<div class="row no-gutters content">
+<div>
+    <NavbarAfter/>
+    <div class="row no-gutters content">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
         <h4 class="mx-2">Checkout</h4>
         <div class="row no-gutters">
@@ -78,14 +80,18 @@
     <ModalCheckout v-show="modalCheckoutActive" @close-modal="toggleModalCheckout"/>
     <ModalShiping v-show="modalShipingActive" @close-modal="toggleModalShiping"/>
 </div>
+</div>
+
 </template>
 
 <script>
+import NavbarAfter from '../../components/_base/NavbarAfter'
 import ModalCheckout from '../../components/_base/ModalCheckout'
 import ModalShiping from '../../components/_base/ModalShiping'
 export default {
   name: 'Checkout',
   components: {
+    NavbarAfter,
     ModalCheckout,
     ModalShiping
   },

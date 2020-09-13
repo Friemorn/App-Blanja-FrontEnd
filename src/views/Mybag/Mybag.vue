@@ -64,7 +64,9 @@
                         <h5 class="title">Shooping summary</h5>
                         <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
                         <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
-                        <button type="button" class="btn btn-danger mt-4">Buy</button>
+                        <router-link class="checkout" to="/checkout">
+                            <button type="button" class="btn btn-danger mt-4">Buy</button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -223,5 +225,8 @@ h4{
     border: none;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+}
+.checkout {
+    width: 100%;
 }
 </style>

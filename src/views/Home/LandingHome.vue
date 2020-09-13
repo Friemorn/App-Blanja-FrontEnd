@@ -25,7 +25,6 @@
           <CardProduct/>
           <CardProduct/>
           <CardProduct/>
-          <CardProduct/>
           </div>
         </div>
       </div>
@@ -57,6 +56,7 @@
 import NavbarBefore from '../../components/_base/NavbarBefore'
 import CardProduct from '../../components/_base/CardProduct'
 import CarouselTrend from '../../components/_base/CarouselTrend'
+
 export default {
   name: 'Homepage',
   components: {

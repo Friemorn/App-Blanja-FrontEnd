@@ -10,9 +10,11 @@
         <div class="form-group">
           <input type="email" class="form-control" id="InputEmailReset" aria-describedby="emailHelp" placeholder="Email">
         </div>
-        <div class="forgot-password">
-            Forgot Password?
-        </div>
+        <router-link class="password" to="/password">
+            <div class="forgot-password">
+              Forgot Password?
+            </div>
+          </router-link>
         <button type="submit" class="btn" @click="reset">PRIMARY</button>
       </div>
       <div class="no-account">
@@ -33,9 +35,11 @@
         <div class="form-group">
           <input type="password" class="form-control" id="InputPasswordNew" placeholder="Confirmation New Password">
         </div>
-        <div class="forgot-password">
-            Forgot Password?
-        </div>
+        <router-link class="password" to="/password">
+            <div class="forgot-password">
+              Forgot Password?
+            </div>
+          </router-link>
         <button type="submit" class="btn" @click="confirm">PRIMARY</button>
       </div>
     </div>
@@ -55,9 +59,11 @@
         <div class="form-group">
           <input type="password" class="form-control" id="InputPasswordNew" placeholder="Password">
         </div>
-        <div class="forgot-password">
-            Forgot Password?
-        </div>
+        <router-link class="password" to="/password">
+            <div class="forgot-password">
+              Forgot Password?
+            </div>
+          </router-link>
         <button type="submit" class="btn">PRIMARY</button>
       </div>
     </div>
@@ -67,7 +73,7 @@
 <script>
 
 export default {
-  name: 'Login',
+  name: 'Password',
   data () {
     return {
       resetPass: true,

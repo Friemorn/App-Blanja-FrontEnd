@@ -12,7 +12,8 @@ export default new Vuex.Store({
     token: localStorage.getItem('token') || null,
     // seller: {},
     // customer: {},
-    user: {}
+    user: {},
+    products: []
   },
   mutations: {
     setUser (state, payload) {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     // },
     setToken (state, payload) {
       state.token = payload
+    },
+    setProduct (state, payload) {
+      state.products = payload
     }
   },
   actions: {
@@ -94,11 +98,28 @@ export default new Vuex.Store({
           localStorage.removeItem('token')
         }
       })
+    },
+    getProduct (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:3000/api/v1/products/allproduct/')
+          .then((res) => {
+            setex.commit('setProduct', res.data.result)
+            setex.commit('setPagination', res.data.resultPage)
+            resolve(res.data.result)
+          })
+          .reject((err) => {
+            console.log(err)
+            reject(err)
+          })
+      })
     }
   },
   getters: {
     isLogin (state) {
       return state.token !== null
+    },
+    products (state) {
+      return state.products
     }
   },
   modules: {

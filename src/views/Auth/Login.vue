@@ -22,9 +22,11 @@
           <div class="form-group">
             <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password" v-model="password">
           </div>
-          <div class="forgot-password">
+          <router-link class="password" to="/password">
+            <div class="forgot-password">
               Forgot Password?
-          </div>
+            </div>
+          </router-link>
           <button type="submit" class="btn" @click="handleLoginSeller">PRIMARY</button>
         </form>
         <form v-show="customer">
@@ -42,14 +44,19 @@
           <div class="form-group">
             <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="password">
           </div>
-          <div class="forgot-password">
+          <router-link class="password" to="/password">
+            <div class="forgot-password">
               Forgot Password?
-          </div>
+            </div>
+          </router-link>
           <button type="submit" class="btn" @click="handleLoginCustomer">PRIMARY</button>
         </form>
       </div>
       <div class="no-account">
-        Don't have a Blanja account? <span class="register">Register</span>
+        Don't have a Blanja account?
+          <router-link class="signup" to="/signup">
+            <span class="register">Register</span>
+          </router-link>
       </div>
     </div>
   </div>

@@ -30,8 +30,11 @@
             <router-link class="cart" to="/mybag">
               <img src="../../assets/cart.png" alt="mybag">
             </router-link>
-            <div class="notif">
+            <div class="notif" @click="NotifOn">
               <img src="../../assets/notif.png" alt="notif">
+              <div class="notification" v-show="showNotif">
+                <img id="notif" src="../../assets/no notif.png" alt="">
+              </div>
             </div>
             <div class="mail">
               <img src="../../assets/mail.png" alt="mail">
@@ -39,8 +42,9 @@
             <div class="logout" @click="handleLogout">
               <img src="../../assets/logout.png" alt="logout">
             </div>
-            <div class="user">
-            </div>
+            <router-link class="profile" to="/profile">
+              <div class="user"></div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -53,6 +57,11 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'NavbarAfter',
+  data () {
+    return {
+      showNotif: false
+    }
+  },
   methods: {
     ...mapActions(['logout']),
     handleLogout () {
@@ -70,6 +79,13 @@ export default {
           this.$router.go(0)
         }
       })
+    },
+    NotifOn () {
+      if (!this.showNotif) {
+        this.showNotif = true
+      } else {
+        this.showNotif = false
+      }
     }
   }
 }
@@ -131,6 +147,16 @@ export default {
   background-image: url('./../../assets/user.png');
   background-repeat: no-repeat;
   background-size: cover
+}
+.notification {
+  height: 300px;
+  width: 250px;
+  margin: 30px 0 0 -100px;
+  z-index: 999;
+  background-color: white;
+}
+#notif{
+  margin: 20px;
 }
 /* Tablet */
 @media only screen and (max-width: 768px) {
