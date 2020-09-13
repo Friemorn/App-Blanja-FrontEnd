@@ -21,10 +21,7 @@ src: url('../src/assets/font/Metropolis-Light.otf');
 font-family: 'Metropolis-Medium';
 src: url('../src/assets/font/Metropolis-Medium.otf');
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> af95063c9cd2258ade8d0df21451134190e58def
 #app {
   font-family: 'Metropolis-Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
