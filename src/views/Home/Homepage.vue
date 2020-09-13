@@ -1,5 +1,7 @@
 <template>
-<div class="container-fluid">
+<div>
+  <NavbarAfter/>
+  <div class="container">
   <div class="row no-gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <CarouselTrend/>
@@ -48,14 +50,17 @@
     </div>
   </div>
 </div>
+</div>
 </template>
 
 <script>
+import NavbarAfter from '../../components/_base/NavbarAfter'
 import CardProduct from '../../components/_base/CardProduct'
 import CarouselTrend from '../../components/_base/CarouselTrend'
 export default {
   name: 'Homepage',
   components: {
+    NavbarAfter,
     CardProduct,
     CarouselTrend
   }

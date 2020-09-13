@@ -94,7 +94,7 @@ export default {
             icon: 'success',
             title: 'Signed in successfully'
           })
-          this.$router.push('/home')
+          this.$router.push('/homepage')
         })
     },
     handleLoginCustomer (e) {
@@ -121,7 +121,7 @@ export default {
             icon: 'success',
             title: 'Signed in successfully'
           })
-          this.$router.push('/home')
+          this.$router.push('/homepage')
         })
     },
     switchSeller () {

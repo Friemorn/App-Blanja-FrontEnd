@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <carousel class="carousel"
   :navigationEnabled="true"
   :navigation-next-label="navigationNext"
@@ -17,18 +16,6 @@
   </slide>
   <slide class="slide">
     Slide 4 Content
-=======
-<carousel :data="data.navigationEnabled"
->
-  <slide>
-    Slide 1 Content
-  </slide>
-  <slide>
-    Slide 2 Content
-  </slide>
-  <slide>
-    Slide 2 Content
->>>>>>> af95063c9cd2258ade8d0df21451134190e58def
   </slide>
 </carousel>
 </template>
@@ -41,30 +28,14 @@ export default {
     Carousel,
     Slide
   },
-<<<<<<< HEAD
   computed: {
     navigationNext: function () { return '<button class="btn-right"><i class="fas fa-chevron-right"></i></button>' },
     navigationPrev: function () { return '<button class="btn-left"><i class="fas fa-chevron-left"></i></button>' }
-=======
-  data () {
-    return {
-      data:
-        [{
-          navigationEnabled: true,
-          buttonNext: '<button class="Next"><i class="fas fa-chevron-right"></i></button>'
-        },
-        {
-          navigationEnabled: true,
-          buttonPrev: '<button class="Next"><i class="fas fa-chevron-left"></i></button>'
-        }]
-    }
->>>>>>> af95063c9cd2258ade8d0df21451134190e58def
   }
 }
 </script>
 
 <style>
-<<<<<<< HEAD
 .carousel {
   margin: auto;
   background-color: black;
@@ -82,14 +53,12 @@ export default {
   border-radius: 10px;
   margin: 10px;
 }
-
 .label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .btn-left{
   position: absolute;
   width: 35px;
@@ -101,7 +70,6 @@ export default {
   background: #FFFFFF;
   box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.25);
 }
-
 .btn-right{
   position: absolute;
   width: 35px;
@@ -115,9 +83,5 @@ export default {
 }
 .VueCarousel-dot-container{
   margin: 0;
-=======
-.VueCarousel-navigation-button .VueCarousel-navigation-next{
-  color: aqua;
->>>>>>> af95063c9cd2258ade8d0df21451134190e58def
 }
 </style>
