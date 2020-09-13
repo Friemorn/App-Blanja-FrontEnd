@@ -80,11 +80,11 @@ export default {
   },
   methods: {
     addSeller () {
-      axios.post('http://localhost:3000/api/v1/users/registerseller', {
+      axios.post('http://localhost:3000/api/v1/users/register', {
         name: this.name,
         email: this.email,
-        phoneNumber: this.phone,
-        storeName: this.store,
+        phoneNumber: this.phoneNumber,
+        storeName: this.storeName,
         password: this.password,
         roleId: this.roleId = 'seller'
       })
