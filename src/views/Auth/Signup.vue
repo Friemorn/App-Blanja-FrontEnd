@@ -74,7 +74,8 @@ export default {
       email: '',
       phoneNumber: '',
       storeName: '',
-      password: ''
+      password: '',
+      roleId: ''
     }
   },
   methods: {
@@ -84,7 +85,8 @@ export default {
         email: this.email,
         phoneNumber: this.phone,
         storeName: this.store,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'seller'
       })
         .then((res) => {
           // this.$swal('Register Success', 'User Added Successfully', 'success')
@@ -99,7 +101,8 @@ export default {
       axios.post('http://localhost:3000/api/v1/users/registercustomer', {
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'customer'
       })
         .then((res) => {
           // this.$swal('Register Success', 'User Added Successfully', 'success')
