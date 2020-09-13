@@ -29,7 +29,7 @@
             <p>Nike</p>
           </div>
           <div class="rating">
-            <img src="../../assets/rating.png" alt="">
+            <Rating :grade="5" :maxStars="5" :hasCounter="true"/>
           </div>
           <div class="price">
             <p>Price</p>
@@ -108,12 +108,14 @@
 <script>
 import NavbarBefore from '../../components/_base/NavbarBefore'
 // import NavbarAfter from '../../components/_base/NavbarAfter'
+import Rating from '../../components/_base/Rating'
 
 export default {
   name: 'Product',
   components: {
-    NavbarBefore
+    NavbarBefore,
     // NavbarAfter
+    Rating
   }
 }
 </script>

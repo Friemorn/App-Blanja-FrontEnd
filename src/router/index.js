@@ -4,6 +4,7 @@ import Checkout from '../views/Checkout/Checkout.vue'
 import Mybag from '../views/Mybag/Mybag.vue'
 import Profile from '../views/profile.vue'
 import Seller from '../views/seller.vue'
+import LandingHome from '../views/Home/LandingHome.vue'
 import Homepage from '../views/Home/Homepage.vue'
 import Category from '../views/Category/Category.vue'
 import Login from '../views/Auth/Login.vue'
@@ -13,6 +14,11 @@ import Product from '../views/Product/Product.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'LandingHome',
+    component: LandingHome
+  },
   {
     path: '/login',
     name: 'Login',
@@ -57,11 +63,6 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
-  },
-  {
-    path: '/homepage',
-    name: 'Homepage',
-    component: Homepage
   }
 ]
 
