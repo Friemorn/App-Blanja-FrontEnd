@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -21,10 +17,6 @@ src: url('../src/assets/font/Metropolis-Light.otf');
 font-family: 'Metropolis-Medium';
 src: url('../src/assets/font/Metropolis-Medium.otf');
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> af95063c9cd2258ade8d0df21451134190e58def
 #app {
   font-family: 'Metropolis-Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,5 +38,14 @@ src: url('../src/assets/font/Metropolis-Medium.otf');
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  font-family: Arial, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
