@@ -14,7 +14,7 @@ const mutations = {
 const actions = {
   getAllProducts (context, payload) {
     return new Promise((resolve, reject) => {
-      axios.get(`http://localhost:3400/api/v1/icafe/product${payload || ''}`)
+      axios.get(`http://http://localhost:3000/api/v1/products/product/${payload || ''}`)
         .then((res) => {
           console.log(res)
           context.commit('setAllProducts', res.data.result)

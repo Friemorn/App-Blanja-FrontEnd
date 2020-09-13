@@ -2,12 +2,12 @@
     <div class="card bg-transparent">
         <a class="nav-link" href="#">
             <div class="image-container">
-                <img src="../../assets/dummy.png" class="card-img-top" alt="blackforest">
+                <img :src="data.image[1]" class="card-img-top" alt="blackforest">
             </div>
             <div class="card-body">
-                <div class="title-product">Men's formal suit - Black & White</div>
-                <div class="price-product">Rp. 90000</div>
-                <div class="branch-product"> Zalora Cloth</div>
+                <div class="title-product">{{data.nameProduct}}</div>
+                <div class="price-product">{{data.price}}</div>
+                <div class="branch-product">{{data.nameBrand}}</div>
             </div>
         </a>
         <div class="ratting-product">
@@ -20,6 +20,11 @@
 import Rating from '../_base/Rating'
 export default {
   name: 'CardProduct',
+  props: {
+    data: {
+      type: Object
+    }
+  },
   components: {
     Rating
   }

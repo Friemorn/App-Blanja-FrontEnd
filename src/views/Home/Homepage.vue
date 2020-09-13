@@ -9,7 +9,7 @@
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 my-3">
       <div class="row no-gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <h4 class="text-left">Category</h4>
+          <h4 class="text-left mb-2">Category</h4>
           <p class="text-left">What are you currently looking for</p>
         </div>
       </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 text-left d-flex flex-wrap" v-for="(item) in allProducts" :key="item.idProduct">
-          <CardProduct/>
+          <CardProduct :data="item"/>
         </div>
       </div>
     </div>
