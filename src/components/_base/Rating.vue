@@ -35,7 +35,6 @@ export default {
 .rating {
   display: flex;
   align-items: center;
-  padding: 5px;
   color: #b7b7b7;
   background: #fff;
   border-radius: 8px;

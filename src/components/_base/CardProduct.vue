@@ -5,9 +5,9 @@
                 <img src="../../assets/dummy.png" class="card-img-top" alt="blackforest">
             </div>
             <div class="card-body">
-                <div class="title-product my-2">Men's formal suit - Black & White</div>
-                <div class="price-product my-2">Rp. 90000</div>
-                <div class="branch-product my-2"> Zalora Cloth</div>
+                <div class="title-product">Men's formal suit - Black & White</div>
+                <div class="price-product">Rp. 90000</div>
+                <div class="branch-product"> Zalora Cloth</div>
             </div>
         </a>
         <div class="ratting-product">
