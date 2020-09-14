@@ -3,19 +3,35 @@
   :navigationEnabled="true"
   :navigation-next-label="navigationNext"
   :navigation-prev-label="navigationPrev"
-  :per-page="4"
+  :perPageCustom="[[768, 2.5], [1024, 3.5]]"
   >
   <slide class="slide">
-    Slide 1 Content
+    <img src="../../assets/ian-dooley-10ca-K3e6Ko-unsplash 1.png" alt="">
+    <label for="slide">Black Edition</label>
   </slide>
   <slide class="slide">
-    Slide 2 Content
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Trends 2020</label>
   </slide>
   <slide class="slide">
-    Slide 3 Content
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Favourite</label>
   </slide>
   <slide class="slide">
-    Slide 4 Content
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Trending's Now</label>
+  </slide>
+  <slide class="slide">
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Trending's Now</label>
+  </slide>
+  <slide class="slide">
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Trending's Now</label>
+  </slide>
+  <slide class="slide">
+    <img src="../../assets/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="">
+    <label for="slide">Trending's Now</label>
   </slide>
 </carousel>
 </template>
@@ -38,11 +54,11 @@ export default {
 <style>
 .carousel {
   margin: auto;
-  background-color: black;
   width: 80%;
   height: 100%;
 }
 .VueCarousel-slide {
+  min-width: 400px;
   position: relative;
   background: #42b983;
   color: #fff;
@@ -53,11 +69,25 @@ export default {
   border-radius: 10px;
   margin: 10px;
 }
-.label {
+.VueCarousel-slide img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.VueCarousel-pagination[data-v-438fd353]{
+  text-align: left;
+}
+label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: 'Metropolis-Medium';
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 2px;
 }
 .btn-left{
   position: absolute;
@@ -70,6 +100,7 @@ export default {
   background: #FFFFFF;
   box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.25);
 }
+
 .btn-right{
   position: absolute;
   width: 35px;
@@ -80,8 +111,5 @@ export default {
   border: none;
   background: #FFFFFF;
   box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.25);
-}
-.VueCarousel-dot-container{
-  margin: 0;
 }
 </style>

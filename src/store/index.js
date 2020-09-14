@@ -4,6 +4,8 @@ import axios from 'axios'
 import router from '../router/index'
 import profile from './profile'
 import seller from './seller'
+import product from './Product/Product'
+import transaction from './Transaction/Transaction'
 
 Vue.use(Vuex)
 
@@ -124,6 +126,8 @@ export default new Vuex.Store({
   },
   modules: {
     profile,
-    seller
+    seller,
+    product,
+    transaction
   }
 })

@@ -2,13 +2,16 @@
     <div>
         <div class="wrapper">
             <div class="seller-profile">
-              <div class="profile-seller d-flex mx-5">
+              <div class="profile-seller d-flex mx-5 mt-5">
                 <div class="user-img">
                   <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
                 </div>
                 <div class="prof-update d-flex flex-column mx-2" v-for="(seller, index) in sellers" :key="index">
                   <span>{{seller.name}}</span>
-                  <span class="change" @click="edit(seller)">Ubah Profile</span>
+                  <div class="edit">
+                    <img src="../../assets/pen.png">
+                    <span class="change mx-1" @click="edit(seller)"><a href="#sellerName">Ubah Profile</a></span>
+                  </div>
                 </div>
               </div>
               <div class="profile-data mx-5 mt-5">
@@ -24,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="store">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small @click="toggle">Profile</small> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="#"><small @click="toggle">Profile</small></a>
                         </li>
                       </ul>
                     </div>
@@ -43,7 +46,7 @@
                     <div class="collapse navbar-collapse" id="product">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small @click="toggle">My Products</small> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="#"><small @click="toggle">My Products</small></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link ml-3" href="#"><small @click="toggle">Selling products</small></a>
@@ -64,10 +67,10 @@
                     <div class="collapse navbar-collapse" id="order">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small>My Order</small></a>
+                          <a class="nav-link" href="#"><small @click="toggle">My Order</small></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link ml-3" href="#"><small>Order cancel</small></a>
+                          <a class="nav-link ml-3" href="#"><small @click="orderCancel">Order cancel</small></a>
                         </li>
                       </ul>
                     </div>
@@ -75,12 +78,11 @@
                 </div>
               </div>
             </div>
-            <div class="card-seller" v-for="(seller, index) in sellers" :key="index">
+            <div class="card-seller my-5" v-for="(seller, index) in sellers" :key="index">
               <storeCard v-if="showing==='Profile'" :data="seller"/>
-              <!-- <h1 v-else-if="showing==='My Products'">My Product</h1> -->
               <productCard v-else-if="showing==='My Products'"/>
-              <!-- <h1 v-else-if="showing==='Selling products'">Selling Product</h1> -->
               <sellingProduct v-else-if="showing==='Selling products'"/>
+              <orderCard v-else-if="showing==='My Order'"/>
             </div>
         </div>
     </div>
@@ -91,12 +93,14 @@ import { mapGetters } from 'vuex'
 import storeCard from './store-card'
 import productCard from './product-card'
 import sellingProduct from './selling-product'
+import orderCard from './my-order-card'
 export default {
   name: 'sellerContainer',
   components: {
     storeCard,
     productCard,
-    sellingProduct
+    sellingProduct,
+    orderCard
   },
   data () {
     return {
@@ -108,8 +112,12 @@ export default {
       console.log(e.target.innerText)
       this.showing = e.target.innerText
     },
+    orderCancel () {
+      this.showing = 'My Order'
+    },
     edit (seller) {
       console.log(seller)
+      this.showing = 'Profile'
     }
   },
   computed: {
@@ -162,6 +170,9 @@ export default {
 .clipboard {
   background: #F3456F;
 }
+.nav-link {
+  color: black;
+}
 @media screen and (min-width: 1300px) {
   .wrapper {
     display: flex;
@@ -178,13 +189,6 @@ export default {
   .card-profile {
     width: 100%;
     margin: auto;
-  }
-}
-
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
   }
 }
 </style>

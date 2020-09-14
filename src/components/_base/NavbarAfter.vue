@@ -144,7 +144,7 @@ export default {
 .user {
   border: 2px solid #8E8E93;
   border-radius: 50%;
-  background-image: url('./../../assets/user.png');
+  background-image: url('../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg');
   background-repeat: no-repeat;
   background-size: cover
 }

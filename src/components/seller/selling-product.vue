@@ -76,6 +76,9 @@
                 </div>
             </div>
         </div>
+        <div class="button d-flex justify-content-end">
+            <button class="btn btn-primary rounded-pill my-5" style="width:115px">Jual</button>
+        </div>
     </div>
 </template>
 

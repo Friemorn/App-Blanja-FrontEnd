@@ -1,14 +1,17 @@
 <template>
     <div>
         <div class="wrapper">
-            <div class="profile" style="border:1px solid black">
-              <div class="profile-user d-flex mx-5">
+            <div class="profile">
+              <div class="profile-user d-flex mx-5 mt-5">
                 <div class="user-img">
                   <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
                 </div>
                 <div class="prof-update d-flex flex-column mx-2" v-for="profile in profiles" :key="profile.id">
                   <span>{{profile.name}}</span>
-                  <span class="change" @click="edit(profile)">Ubah Profile</span>
+                  <div class="edit">
+                    <img src="../../assets/pen.png" alt="">
+                    <span class="change mx-1" @click="edit(profile)"><a href="#userName">Ubah Profile</a></span>
+                  </div>
                 </div>
               </div>
               <div class="profile-data mx-5 mt-5">
@@ -32,25 +35,29 @@
                 </div>
               </div>
             </div>
-            <div class="card-profile" v-for="profile in profiles" :key="profile.id">
+            <div class="card-profile my-5" v-for="profile in profiles" :key="profile.id">
               <cardProfile v-if="showing==='My Account'" :data="profile"/>
               <addressCard v-else-if="showing==='Shipping Address'" />
               <orderCard v-else-if="showing==='My Order'"/>
             </div>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
+              Filter
+        </button>
+        <filterModal/>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import sidebar from './sidebar'
+import filterModal from '../filter'
 import cardProfile from './card-profile'
 import addressCard from './address-card'
 import orderCard from './orders-card'
 export default {
   name: 'profileContainer',
   components: {
-    // sidebar,
+    filterModal,
     cardProfile,
     addressCard,
     orderCard
@@ -67,6 +74,7 @@ export default {
     },
     edit (profile) {
       console.log(profile)
+      this.showing = 'My Account'
     }
   },
   computed: {
@@ -138,10 +146,4 @@ export default {
   }
 }
 
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-  }
-}
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <NavbarAfter/>
+<NavbarAfter/>
   <div class="container">
     <div class="row no-gutters content">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
@@ -58,6 +58,7 @@
                             </div>
                         </div>
                     </div>
+                    <ItemsCarts v-for="(item) in getBag" :key="item.idProduct"/>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                     <div class="row no-gutters shadow px-3 py-3 rounded">
@@ -115,6 +116,12 @@ h4{
     width: 100%;
     border-radius: 25px;
     letter-spacing: 1px;
+    background-color: #273AC7;
+    border: none;
+}
+.btn-danger:hover{
+    background-color: #eee;
+    color: black;
 }
 .btn-outline-danger{
     border: none;
@@ -175,7 +182,7 @@ h4{
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #fc0000;
+  background-color:#273AC7;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

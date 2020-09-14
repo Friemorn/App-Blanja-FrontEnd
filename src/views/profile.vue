@@ -1,7 +1,7 @@
 <template>
     <div>
       <NavbarAfter/>
-        <profileContainer/>
+      <profileContainer/>
     </div>
 </template>
 
