@@ -91,6 +91,7 @@ export default {
   background: #FFFFFF;
   box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.25);
 }
+
 .btn-right{
   position: absolute;
   width: 35px;
