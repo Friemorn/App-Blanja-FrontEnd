@@ -1,10 +1,10 @@
 <template>
   <div>
-    <NavbarBefore/>
-    <!-- <NavbarAfter/> -->
+    <NavbarAfter v-show="isLogin == true"/>
+    <NavbarBefore v-show="isLogin == false"/>
     <div class="container">
       <div class="path">
-        Home &gt; category &gt; Shoes
+        <router-link to="/homepage">Home </router-link> &gt; category &gt; Shoes
       </div>
       <div class="buy">
         <div class="images-product">
@@ -29,7 +29,7 @@
             <p>Nike</p>
           </div>
           <div class="rating">
-            <img src="../../assets/rating.png" alt="">
+            <Rating :grade="5" :maxStars="5" :hasCounter="true"/>
           </div>
           <div class="price">
             <p>Price</p>
@@ -107,13 +107,19 @@
 
 <script>
 import NavbarBefore from '../../components/_base/NavbarBefore'
-// import NavbarAfter from '../../components/_base/NavbarAfter'
+import NavbarAfter from '../../components/_base/NavbarAfter'
+import Rating from '../../components/_base/Rating'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Product',
   components: {
-    NavbarBefore
-    // NavbarAfter
+    NavbarBefore,
+    NavbarAfter,
+    Rating
+  },
+  computed: {
+    ...mapGetters(['isLogin'])
   }
 }
 </script>

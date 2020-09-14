@@ -2,12 +2,14 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <div class="logo">
-          <div>
-            <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+        <router-link class="landinghome" to="/homepage">
+          <div class="logo">
+            <div>
+              <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+            </div>
+            <div id="blanja">Blanja</div>
           </div>
-          <div id="blanja">Blanja</div>
-        </div>
+        </router-link>
         <div class="search">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -26,16 +28,24 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <router-link class="cart" to="/mybag">
+              <span class="badge badge-secondary" v-if="getBag.length">{{totalQty}}</span>
               <img src="../../assets/cart.png" alt="mybag">
             </router-link>
-            <div class="notif">
+            <div class="notif" @click="NotifOn">
               <img src="../../assets/notif.png" alt="notif">
+              <div class="notification" v-show="showNotif">
+                <img id="notif" src="../../assets/no notif.png" alt="">
+              </div>
             </div>
             <div class="mail">
               <img src="../../assets/mail.png" alt="mail">
             </div>
-            <div class="user">
+            <div class="logout" @click="handleLogout">
+              <img src="../../assets/logout.png" alt="logout">
             </div>
+            <router-link class="profile" to="/profile">
+              <div class="user"></div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -44,14 +54,57 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+// import popper from '../_base/Popper'
 export default {
-  name: 'NavbarAfter'
+  name: 'NavbarAfter',
+  components: {
+    // popper
+  },
+  data () {
+    return {
+      showNotif: false
+    }
+  },
+  methods: {
+    ...mapActions(['logout']),
+    handleLogout () {
+      this.$swal.fire({
+        title: 'Are you sure want to logout?',
+        text: 'You will be return to the landing page',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Logout'
+      }).then((result) => {
+        if (result.value) {
+          this.logout()
+          this.$router.go(0)
+        }
+      })
+    },
+    NotifOn () {
+      if (!this.showNotif) {
+        this.showNotif = true
+      } else {
+        this.showNotif = false
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(['getBag']),
+    totalQty () {
+      return this.getBag.reduce((a, b) => a + b.qty, 0)
+    }
+  }
 }
 </script>
 
 <style scoped>
 /* Desktop */
 .navbar {
+  margin-bottom: 40px;
   box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
 }
 .logo {
@@ -62,9 +115,9 @@ export default {
   justify-content: space-between;
 }
 #blanja {
-  color: #787983;
+  color: #273AC7;
   font-size: 24px;
-  font-weight: 550;
+  font-weight: 600;
   padding-top: 10px;
 }
 .search {
@@ -93,18 +146,39 @@ export default {
 #icon-filter {
   margin: 5px 5px 0;
 }
-.cart, .mail, .notif, .user {
+.cart, .mail, .notif, .logout, .user {
   height: 35px;
   width: 35px;
   margin: 0 10px;
 }
+.cart{
+  position: relative;
+}
+.badge-secondary{
+  position: absolute;
+  border-radius: 50%;
+  right: 0;
+  top: 0;
+  background-color: #273ac7;
+}
 .user {
   border: 2px solid #8E8E93;
   border-radius: 50%;
-  background-image: url('./../../assets/user.png');
+  background-image: url('../../assets/user.png');
   background-repeat: no-repeat;
   background-size: cover
 }
+.notification {
+  height: 300px;
+  width: 250px;
+  margin: 30px 0 0 -100px;
+  z-index: 999;
+  background-color: white;
+}
+#notif{
+  margin: 20px;
+}
+
 /* Tablet */
 @media only screen and (max-width: 768px) {
   .form-control {

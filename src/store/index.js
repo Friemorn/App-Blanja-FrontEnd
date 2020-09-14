@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router/index'
+import profile from './profile'
+import seller from './seller'
 import product from './Product/Product'
 import transaction from './Transaction/Transaction'
 
@@ -10,20 +12,29 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('token') || null,
-    seller: {},
-    customer: {}
+    // seller: {},
+    // customer: {},
+    user: {}
+    // products: []
   },
   mutations: {
-    setSeller (state, payload) {
-      state.seller = payload
+    setUser (state, payload) {
+      state.user = payload
       state.token = payload.token
     },
-    setCustomer (state, payload) {
-      state.customer = payload
-      state.token = payload.token
-    },
+    // setSeller (state, payload) {
+    //   state.seller = payload
+    //   state.token = payload.token
+    // },
+    // setCustomer (state, payload) {
+    //   state.customer = payload
+    //   state.token = payload.token
+    // },
     setToken (state, payload) {
       state.token = payload
+    // },
+    // setProduct (state, payload) {
+    //   state.products = payload
     }
   },
   actions: {
@@ -67,13 +78,13 @@ export default new Vuex.Store({
         return Promise.reject(error)
       })
     },
-    loginSeller (setex, payload) {
+    login (setex, payload) {
       console.log(payload)
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v1/users/loginseller', payload)
+        axios.post('http://localhost:3000/api/v1/users/login/', payload)
           .then((res) => {
             console.log(res)
-            setex.commit('setSeller', res.data.result)
+            setex.commit('setUser', res.data.result)
             localStorage.setItem('token', res.data.result.token)
             resolve(res.data.result[0])
           })
@@ -83,29 +94,39 @@ export default new Vuex.Store({
           })
       })
     },
-    loginCustomer (setex, payload) {
-      console.log(payload)
+    logout () {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v1/users/logincustomer', payload)
-          .then((res) => {
-            console.log(res)
-            setex.commit('setCustomer', res.data.result)
-            localStorage.setItem('token', res.data.result.token)
-            resolve(res.data.result[0])
-          })
-          .catch((err) => {
-            console.log(err)
-            reject(err)
-          })
+        if (this.state.token !== null) {
+          localStorage.removeItem('token')
+        }
       })
     }
+    // getProduct (setex, payload) {
+    //   return new Promise((resolve, reject) => {
+    //     axios.get('http://localhost:3000/api/v1/products/allproduct/')
+    //       .then((res) => {
+    //         setex.commit('setProduct', res.data.result)
+    //         setex.commit('setPagination', res.data.resultPage)
+    //         resolve(res.data.result)
+    //       })
+    //       .reject((err) => {
+    //         console.log(err)
+    //         reject(err)
+    //       })
+    //   })
+    // }
   },
   getters: {
     isLogin (state) {
       return state.token !== null
+    },
+    getUsers (state) {
+      return state.user
     }
   },
   modules: {
+    profile,
+    seller,
     product,
     transaction
   }

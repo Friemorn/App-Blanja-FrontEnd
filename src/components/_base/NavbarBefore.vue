@@ -2,12 +2,14 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <div class="logo">
-          <div>
-            <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+        <router-link class="landinghome" to="/homepage">
+          <div class="logo">
+            <div>
+              <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
+            </div>
+            <div id="blanja">Blanja</div>
           </div>
-          <div id="blanja">Blanja</div>
-        </div>
+        </router-link>
         <div class="search">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -47,6 +49,7 @@ export default {
 <style scoped>
 /* Desktop */
 .navbar {
+  margin-bottom: 40px;
   box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
 }
 .logo {
@@ -57,9 +60,9 @@ export default {
   justify-content: space-between;
 }
 #blanja {
-  color: #787983;
+  color: #273AC7;
   font-size: 24px;
-  font-weight: 550;
+  font-weight: 600;
   padding-top: 10px;
 }
 .search {

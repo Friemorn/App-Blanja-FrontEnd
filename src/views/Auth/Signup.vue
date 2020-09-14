@@ -55,7 +55,10 @@
         </form>
       </div>
       <div class="no-account">
-        Already have a Blanja account? <span class="login">Login</span>
+        Already have a Blanja account?
+          <router-link class="login" to="/login">
+            <span class="login">Login</span>
+          </router-link>
       </div>
     </div>
   </div>
@@ -98,7 +101,7 @@ export default {
         })
     },
     addCustomer () {
-      axios.post('http://localhost:3000/api/v1/users/registercustomer', {
+      axios.post('http://localhost:3000/api/v1/users/register', {
         name: this.name,
         email: this.email,
         password: this.password,

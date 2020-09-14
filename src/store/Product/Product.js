@@ -6,7 +6,6 @@ const state = {
 
 const mutations = {
   setAllProducts (state, payload) {
-    console.log(payload)
     state.products = payload
   }
 }
@@ -14,11 +13,12 @@ const mutations = {
 const actions = {
   getAllProducts (context, payload) {
     return new Promise((resolve, reject) => {
-      axios.get(`https://fakestoreapi.com/products/${payload || ''}`)
+      // axios.get(`http://localhost:3000/api/v1/products/allproduct${payload || ''}`)
+      axios.get('http://localhost:3000/api/v1/products/allproduct/', payload)
         .then((res) => {
-          console.log(res)
-          context.commit('setAllProducts', res.data)
-          resolve(res.data)
+          console.log(res.data)
+          context.commit('setAllProducts', res.data.result)
+          resolve(res.data.result)
         })
         .catch((err) => {
           console.log(err)

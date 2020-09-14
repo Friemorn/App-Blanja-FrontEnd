@@ -10,37 +10,46 @@
                         <div class="row no-gutters d-flex align-items-center">
                             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
                                 <div class="container-img">
-                                    <img src="../../assets/dummy.png" alt="dumy">
+                                    <img :src="data.image" alt="dumy">
                                 </div>
                             </div>
                             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
                                 <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-product">Men's formal suit - Black</div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-product">{{data.nameProduct}}</div>
                                 </div>
                                 <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">Zalora Cloth</div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">{{data.nameBrand}}</div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 p-2">
                                 <div class="row no-gutters d-flex align-items-center">
-                                    <button class="col minus">-</button>
-                                    <div class="col control-num text-center"> 1 </div>
-                                    <button class="col plus">+</button>
+                                    <button class="col minus" @click="reduceQty(data)">-</button>
+                                    <div class="col control-num text-center"> {{data.qty}} </div>
+                                    <button class="col plus" @click="addQty(data)">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-right">
                         <div class="row no-gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 price text-right"> Rp. 12.000</div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 price text-right">Rp.{{(data.price*data.qty).toLocaleString('de-DE')}}</div>
                         </div>
                     </div>
                 </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  name: 'ItemCarts'
+  name: 'ItemCarts',
+  props: {
+    data: {
+      type: Object
+    }
+  },
+  methods: {
+    ...mapMutations(['addQty', 'reduceQty'])
+  }
 }
 </script>
 
@@ -65,6 +74,7 @@ h4{
     letter-spacing: 1px;
 }
 .price{
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -132,7 +142,7 @@ h4{
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #fc0000;
+  background-color: #273ac7;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

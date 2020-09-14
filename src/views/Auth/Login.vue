@@ -22,9 +22,11 @@
           <div class="form-group">
             <input type="password" class="form-control" id="InputPasswordSeller" placeholder="Password" v-model="password">
           </div>
-          <div class="forgot-password">
+          <router-link class="password" to="/password">
+            <div class="forgot-password">
               Forgot Password?
-          </div>
+            </div>
+          </router-link>
           <button type="submit" class="btn" @click="handleLoginSeller">PRIMARY</button>
         </form>
         <form v-show="customer">
@@ -42,14 +44,19 @@
           <div class="form-group">
             <input type="password" class="form-control" id="InputPasswordCustomer" placeholder="Password" v-model="password">
           </div>
-          <div class="forgot-password">
+          <router-link class="password" to="/password">
+            <div class="forgot-password">
               Forgot Password?
-          </div>
+            </div>
+          </router-link>
           <button type="submit" class="btn" @click="handleLoginCustomer">PRIMARY</button>
         </form>
       </div>
       <div class="no-account">
-        Don't have a Blanja account? <span class="register">Register</span>
+        Don't have a Blanja account?
+          <router-link class="signup" to="/signup">
+            <span class="register">Register</span>
+          </router-link>
       </div>
     </div>
   </div>
@@ -65,18 +72,20 @@ export default {
       seller: true,
       customer: false,
       email: '',
-      password: ''
+      password: '',
+      roleId: ''
     }
   },
   methods: {
-    ...mapActions(['loginSeller', 'loginCustomer']),
+    ...mapActions(['login']),
     handleLoginSeller (e) {
       e.preventDefault()
       const data = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'seller'
       }
-      this.loginSeller(data)
+      this.login(data)
         .then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
@@ -94,16 +103,17 @@ export default {
             icon: 'success',
             title: 'Signed in successfully'
           })
-          this.$router.push('/home')
+          this.$router.push('/homepage')
         })
     },
     handleLoginCustomer (e) {
       e.preventDefault()
       const data = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        roleId: this.roleId = 'customer'
       }
-      this.loginCustomer(data)
+      this.login(data)
         .then(() => {
           const Toast = this.$swal.mixin({
             toast: true,
@@ -121,7 +131,7 @@ export default {
             icon: 'success',
             title: 'Signed in successfully'
           })
-          this.$router.push('/home')
+          this.$router.push('/homepage')
         })
     },
     switchSeller () {
