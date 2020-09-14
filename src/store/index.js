@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router/index'
 import product from './Product/Product'
+import transaction from './Transaction/Transaction'
 
 Vue.use(Vuex)
 
@@ -105,6 +106,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    product
+    product,
+    transaction
   }
 })

@@ -4,6 +4,7 @@ import Homepage from '../views/Home/Homepage.vue'
 import Category from '../views/Category/Category.vue'
 import Login from '../views/Auth/Login.vue'
 import Signup from '../views/Auth/Signup.vue'
+import Product from '../views/Product/Product.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/homepage',
     name: 'Homepage',
     component: Homepage
+  },
+  {
+    path: '/product',
+    name: 'Product',
+    component: Product
   }
 ]
 
