@@ -29,23 +29,23 @@
             :data="item"/>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-                <div class="row no-gutters shadow px-3 py-3 rounded">
+                <div class="row no-gutters shadow px-3 py-3 rounded" v-if="getBag.length">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="row no-gutters">
                             <h5 class="title">Shooping summary</h5>
                         </div>
                         <div class="row no-gutters">
                             <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Total Price</div>
-                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
+                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2 text-right">Rp.{{getPricing.toLocaleString('de-DE')}}</div>
                         </div>
                         <div class="row no-gutters">
                             <div class="title-price col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 mt-2">Delivery</div>
-                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2">Rp. 10.000</div>
+                            <div class="price col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 mt-2 text-right">Rp. 10.000</div>
                         </div>
                         <div class="row no-gutters mb-2">
                             <hr>
                             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 title">Shooping summary</div>
-                            <div class="price-sum col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">Rp. 10.000</div>
+                            <div class="price-sum col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 text-right">Rp. {{shopSum.toLocaleString('de-DE')}}</div>
                         </div>
                         <div class="row no-gutters">
                             <button type="button" class="btn btn-danger" @click="toggleModalCheckout">Select payment</button>
@@ -89,7 +89,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getBag'])
+    ...mapGetters(['getBag', 'getPricing']),
+    shopSum () {
+      return this.getPricing + 10000
+    }
   }
 }
 </script>
