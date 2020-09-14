@@ -125,13 +125,9 @@ export default new Vuex.Store({
     }
   },
   modules: {
-<<<<<<< HEAD
     profile,
     seller,
-    product
-=======
     product,
     transaction
->>>>>>> 53c5d7f31c38a2e8d6f98555f027a7a2b01f32ed
   }
 })
