@@ -9,7 +9,7 @@
           <div class="address-data">
             <div class="row mx-5">
               <div class="col-lg-12 p-4" style="border:1px dashed #9B9B9B">
-                <span class="add-address h4" data-toggle="modal" data-target="#newAddress">Add new adrress</span>
+                <span class="add-address h4 text-center" data-toggle="modal" data-target="#newAddress">Add new adrress</span>
               </div>
             </div>
             <div class="row mx-5 mt-4">
@@ -101,13 +101,6 @@ export default {
   }
   .card-text span {
     text-align: center;
-  }
-}
-
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
   }
 }
 </style>

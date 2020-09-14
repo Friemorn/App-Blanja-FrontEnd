@@ -58,31 +58,31 @@
                             <li>
                                 <label>
                                     <input type="checkbox" value="xs" v-model="sizes">
-                                    <span class="size" style="background: #fff">XS</span>
+                                    <span class="size text-center" style="background: #fff">XS</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="s" v-model="sizes">
-                                    <span class="size" style="background: #fff">S</span>
+                                    <span class="size text-center" style="background: #fff">S</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="m" v-model="sizes">
-                                    <span class="size" style="background: #fff">M</span>
+                                    <span class="size text-center" style="background: #fff">M</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="l" v-model="sizes">
-                                    <span class="size" style="background: #fff">L</span>
+                                    <span class="size text-center" style="background: #fff">L</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="xl" v-model="sizes">
-                                    <span class="size" style="background: #fff">XL</span>
+                                    <span class="size text-center" style="background: #fff">XL</span>
                                 </label>
                             </li>
                         </ul>
@@ -93,30 +93,30 @@
                             <li>
                                 <label>
                                     <input type="checkbox" value="all" v-model="categories">
-                                    <span class="category" style="background: #fff">All</span>
+                                    <span class="category text-center" style="background: #fff">All</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="women" v-model="categories">
-                                    <span class="category" style="background: #fff">Women</span>
+                                    <span class="category text-center" style="background: #fff">Women</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="men" v-model="categories">
-                                    <span class="category" style="background: #fff">Men</span>
+                                    <span class="category text-center" style="background: #fff">Men</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
                                     <input type="checkbox" value="boys" v-model="categories">
-                                    <span class="category" style="background: #fff">Boys</span>
+                                    <span class="category text-center" style="background: #fff">Boys</span>
                                 </label>
                             <li>
                                 <label>
                                     <input type="checkbox" value="girls" v-model="categories">
-                                    <span class="category" style="background: #fff">Girls</span>
+                                    <span class="category text-center" style="background: #fff">Girls</span>
                                 </label>
                             </li>
                         </ul>

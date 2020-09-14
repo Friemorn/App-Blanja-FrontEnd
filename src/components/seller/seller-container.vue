@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="store">
                       <ul class="navbar-nav">
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><small @click="toggle">Profile</small> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="#"><small @click="toggle">Profile</small></a>
                         </li>
                       </ul>
                     </div>
@@ -189,13 +189,6 @@ export default {
   .card-profile {
     width: 100%;
     margin: auto;
-  }
-}
-
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
   }
 }
 </style>

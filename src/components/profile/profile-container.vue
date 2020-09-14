@@ -146,10 +146,4 @@ export default {
   }
 }
 
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-  }
-}
 </style>

@@ -14,7 +14,7 @@
                     <form>
                         <div class="form-group">
                             <label for="home" class="text-left d-flex">Save address as (ex : home address, office address)</label>
-                            <input type="text" class="form-control" placeholder="Rumah">
+                            <input type="text" class="form-control" placeholder="Rumah" v-model="data.rumah">
                         </div>
                         <div class="form-group row">
                             <div class="class-one col-lg-6">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="class-two col-lg-6">
                                 <label class="d-flex">Recipient’s name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" v-model="data.recipientsName">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -33,20 +33,20 @@
                             </div>
                             <div class="class-two col-lg-6">
                                 <label class="d-flex">Postal Code</label>
-                                <input type="number" class="form-control">
+                                <input type="number" class="form-control" v-model="data.postalCode">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="class-one col-lg-6">
                                 <label class="d-flex">City or Subdistrict</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" v-model="data.kecamatan">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" @click="$emit('fire-event')">Save</button>
                 </div>
                 </div>
             </div>
@@ -56,7 +56,12 @@
 
 <script>
 export default {
-  name: 'modalAddress'
+  name: 'modalAddress',
+  props: {
+    data: {
+      type: Object
+    }
+  }
 }
 </script>
 
