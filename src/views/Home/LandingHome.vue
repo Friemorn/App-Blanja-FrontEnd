@@ -1,6 +1,6 @@
 <template>
 <div>
-  <NavbarAfter/>
+  <NavbarBefore/>
   <div>
   <div class="row no-gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import NavbarAfter from '../../components/_base/NavbarAfter'
+import NavbarBefore from '../../components/_base/NavbarBefore'
 import CardProduct from '../../components/_base/CardProduct'
 import CarouselTrend from '../../components/_base/CarouselTrend'
 import CarouselCategory from '../../components/_base/CarouselCategory'
@@ -64,7 +64,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'Homepage',
   components: {
-    NavbarAfter,
+    NavbarBefore,
     CardProduct,
     CarouselTrend,
     CarouselCategory

@@ -116,6 +116,12 @@ h4{
     width: 100%;
     border-radius: 25px;
     letter-spacing: 1px;
+    background-color: #273AC7;
+    border: none;
+}
+.btn-danger:hover{
+    background-color: #eee;
+    color: black;
 }
 .btn-outline-danger{
     border: none;
@@ -176,7 +182,7 @@ h4{
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #fc0000;
+  background-color:#273AC7;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
