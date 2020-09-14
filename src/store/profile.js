@@ -1,8 +1,8 @@
 const state = {
   profiles: [{
     id: '1',
-    name: 'Geralt of Rivia',
-    email: 'geralt@gmail.com',
+    name: 'Johanes Mikael',
+    email: 'johanes@gmail.com',
     phoneNumber: '08934243',
     gender: 'laki-laki',
     year: '1995',
