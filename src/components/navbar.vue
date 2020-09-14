@@ -2,23 +2,21 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <router-link class="landinghome" to="/homepage">
-          <div class="logo">
-            <div>
-              <img id="logo-blanja" src="../../assets/shopping-bag 1.png" alt="">
-            </div>
-            <div id="blanja">Blanja</div>
+        <div class="logo">
+          <div>
+            <img id="logo-blanja" src="../assets/shopping-bag 1.png" alt="">
           </div>
-        </router-link>
+          <div id="blanja">Blanja</div>
+        </div>
         <div class="search">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           </form>
           <div>
-            <img id="icon-search" src="../../assets/search.png" alt="">
+            <img id="icon-search" src="../assets/search.png" alt="">
           </div>
           <div class="filter">
-            <img id="icon-filter" src="../../assets/filter.png" alt="">
+            <img id="icon-filter" src="../assets/filter.png" alt="">
           </div>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -28,23 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <router-link class="cart" to="/mybag">
-              <img src="../../assets/cart.png" alt="mybag">
+              <img src="../assets/cart.png" alt="mybag">
             </router-link>
-            <div class="notif" @click="NotifOn">
-              <img src="../../assets/notif.png" alt="notif">
-              <div class="notification" v-show="showNotif">
-                <img id="notif" src="../../assets/no notif.png" alt="">
-              </div>
+            <div class="notif">
+              <img src="../assets/notif.png" alt="notif">
             </div>
             <div class="mail">
-              <img src="../../assets/mail.png" alt="mail">
+              <img src="../assets/mail.png" alt="mail">
             </div>
-            <div class="logout" @click="handleLogout">
-              <img src="../../assets/logout.png" alt="logout">
+            <div class="user">
             </div>
-            <router-link class="profile" to="/profile">
-              <div class="user"></div>
-            </router-link>
           </div>
         </div>
       </div>
@@ -53,48 +44,14 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
-  name: 'NavbarAfter',
-  data () {
-    return {
-      showNotif: false
-    }
-  },
-  methods: {
-    ...mapActions(['logout']),
-    handleLogout () {
-      this.$swal.fire({
-        title: 'Are you sure want to logout?',
-        text: 'You will be return to the landing page',
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Logout'
-      }).then((result) => {
-        if (result.value) {
-          this.logout()
-          this.$router.go(0)
-        }
-      })
-    },
-    NotifOn () {
-      if (!this.showNotif) {
-        this.showNotif = true
-      } else {
-        this.showNotif = false
-      }
-    }
-  }
+  name: 'NavbarAfter'
 }
 </script>
 
 <style scoped>
 /* Desktop */
 .navbar {
-  margin-bottom: 40px;
   box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
 }
 .logo {
@@ -105,9 +62,9 @@ export default {
   justify-content: space-between;
 }
 #blanja {
-  color: #273AC7;
+  color: #787983;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 550;
   padding-top: 10px;
 }
 .search {
@@ -136,7 +93,7 @@ export default {
 #icon-filter {
   margin: 5px 5px 0;
 }
-.cart, .mail, .notif, .logout, .user {
+.cart, .mail, .notif, .user {
   height: 35px;
   width: 35px;
   margin: 0 10px;
@@ -144,19 +101,9 @@ export default {
 .user {
   border: 2px solid #8E8E93;
   border-radius: 50%;
-  background-image: url('../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg');
+  background-image: url('../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg');
   background-repeat: no-repeat;
   background-size: cover
-}
-.notification {
-  height: 300px;
-  width: 250px;
-  margin: 30px 0 0 -100px;
-  z-index: 999;
-  background-color: white;
-}
-#notif{
-  margin: 20px;
 }
 /* Tablet */
 @media only screen and (max-width: 768px) {

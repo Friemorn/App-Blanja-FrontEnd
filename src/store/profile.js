@@ -1,11 +1,13 @@
 const state = {
   profiles: [{
     id: '1',
-    name: 'Geralt of Rivia',
-    email: 'geralt@gmail.com',
+    name: 'Johanes Mikael',
+    email: 'johanes@gmail.com',
     phoneNumber: '08934243',
     gender: 'laki-laki',
-    year: '1995'
+    year: '1995',
+    month: 'Januari',
+    date: '9'
   }],
   address: [{
     rumah: ' Perumahan Sapphire Mediterania, Wiradadi, Kec. Sokaraja, Kabupaten Banyumas, Jawa Tengah, 53181',

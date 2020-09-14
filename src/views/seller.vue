@@ -1,7 +1,7 @@
 <template>
     <div>
       <NavbarAfter/>
-        <sellerContainer/>
+      <sellerContainer/>
     </div>
 </template>
 
