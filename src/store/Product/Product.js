@@ -14,11 +14,11 @@ const mutations = {
 const actions = {
   getAllProducts (context, payload) {
     return new Promise((resolve, reject) => {
-      axios.get(`http://http://localhost:3000/api/v1/products/product/${payload || ''}`)
+      axios.get(`https://fakestoreapi.com/products/${payload || ''}`)
         .then((res) => {
           console.log(res)
-          context.commit('setAllProducts', res.data.result)
-          resolve(res.data.result)
+          context.commit('setAllProducts', res.data)
+          resolve(res.data)
         })
         .catch((err) => {
           console.log(err)

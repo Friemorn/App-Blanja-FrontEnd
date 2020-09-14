@@ -29,9 +29,10 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 text-left d-flex flex-wrap" v-for="(item) in allProducts" :key="item.idProduct">
-          <CardProduct :data="item"/>
-        </div>
+          <CardProduct
+          v-for="(item) in allProducts" :key="item.idProduct"
+          :data="item"
+          @select-product="addBag(item)"/>
       </div>
     </div>
   </div>
@@ -59,7 +60,7 @@ import NavbarAfter from '../../components/_base/NavbarAfter'
 import CardProduct from '../../components/_base/CardProduct'
 import CarouselTrend from '../../components/_base/CarouselTrend'
 import CarouselCategory from '../../components/_base/CarouselCategory'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'Homepage',
   components: {
@@ -69,7 +70,8 @@ export default {
     CarouselCategory
   },
   methods: {
-    ...mapActions(['getAllProducts'])
+    ...mapActions(['getAllProducts']),
+    ...mapMutations(['addBag'])
   },
   computed: {
     ...mapGetters(['allProducts'])
