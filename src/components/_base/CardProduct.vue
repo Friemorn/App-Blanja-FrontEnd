@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <div class="title-product">{{data.nameProduct}}</div>
-                <div class="price-product">{{data.price}}</div>
+                <div class="price-product">Rp.{{(data.price.toLocaleString('de-DE'))}}</div>
                 <div class="branch-product">{{data.nameBrand}}</div>
             </div>
         </a>
