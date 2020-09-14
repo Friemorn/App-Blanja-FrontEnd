@@ -25,30 +25,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row no-gutters shadow mt-3 px-3 py-1 d-flex align-items-center mr-3 rounded">
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                        <div class="row no-gutters d-flex align-items-center">
-                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                                <div class="container-img">
-                                    <img src="../../assets/dummy.png" alt="dumy">
-                                </div>
-                            </div>
-                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
-                                <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 title-product">Men's formal suit - Black</div>
-                                </div>
-                                <div class="row no-gutters">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 branch-product">Zalora Cloth</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 text-right">
-                        <div class="row no-gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 price text-right"> Rp. 12.000</div>
-                        </div>
-                    </div>
-                </div>
+            <CartCheckout v-for="item in getBag" :key="item.id"
+            :data="item"/>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                 <div class="row no-gutters shadow px-3 py-3 rounded">
@@ -88,12 +66,15 @@
 import NavbarAfter from '../../components/_base/NavbarAfter'
 import ModalCheckout from '../../components/_base/ModalCheckout'
 import ModalShiping from '../../components/_base/ModalShiping'
+import CartCheckout from '../../components/_base/CartCheckout'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Checkout',
   components: {
     NavbarAfter,
     ModalCheckout,
-    ModalShiping
+    ModalShiping,
+    CartCheckout
   },
   data: () => ({
     modalCheckoutActive: false,
@@ -106,6 +87,9 @@ export default {
     toggleModalShiping () {
       this.modalShipingActive = !this.modalShipingActive
     }
+  },
+  computed: {
+    ...mapGetters(['getBag'])
   }
 }
 </script>

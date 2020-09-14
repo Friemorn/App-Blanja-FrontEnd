@@ -7,8 +7,11 @@ import jQuery from 'jquery'
 import 'popper.js'
 import 'bootstrap'
 import './assets/app.scss'
+import VueTippy, { TippyComponent } from 'vue-tippy'
 window.$ = window.jQuery = jQuery
 
+Vue.use(VueTippy)
+Vue.component('tippy', TippyComponent)
 Vue.use(VueSweetalert2)
 Vue.config.productionTip = false
 

@@ -30,7 +30,7 @@
       </div>
       <div class="row no-gutters">
           <CardProduct
-          v-for="(item, index) in allProducts" :key="index"
+          v-for="(item) in allProducts" :key="item.id"
           :data="item"
           @select-product="addBag(item)"/>
       </div>
@@ -46,7 +46,7 @@
       </div>
       <div class="row no-gutters">
           <CardProduct
-          v-for="(item, index) in allProducts" :key="index"
+          v-for="(item) in allProducts" :key="item.id"
           :data="item"
           @select-product="addBag(item)"/>
       </div>
