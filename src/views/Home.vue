@@ -4,7 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
-      Launch demo modal
+      Filter
     </button>
     <filterModal/>
   </div>
