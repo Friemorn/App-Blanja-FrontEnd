@@ -38,19 +38,23 @@
               <orderCard v-else-if="showing==='My Order'"/>
             </div>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
+              Filter
+        </button>
+        <filterModal/>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import sidebar from './sidebar'
+import filterModal from '../filter'
 import cardProfile from './card-profile'
 import addressCard from './address-card'
 import orderCard from './orders-card'
 export default {
   name: 'profileContainer',
   components: {
-    // sidebar,
+    filterModal,
     cardProfile,
     addressCard,
     orderCard
