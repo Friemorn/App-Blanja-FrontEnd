@@ -36,9 +36,8 @@ export default {
   display: flex;
   align-items: center;
   color: #b7b7b7;
-  background: #fff;
+  background-color: transparent;
   border-radius: 8px;
-  /* box-shadow: 0 6px 33px rgba(19, 18, 18, 0.09); */
 }
 .rating .list {
   padding: 0;

@@ -4,6 +4,7 @@ import axios from 'axios'
 import router from '../router/index'
 import profile from './profile'
 import seller from './seller'
+import product from './Product/Product'
 
 Vue.use(Vuex)
 
@@ -79,7 +80,7 @@ export default new Vuex.Store({
     login (setex, payload) {
       console.log(payload)
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v1/users/login', payload)
+        axios.post('http://localhost:3000/api/v1/users/loginseller', payload)
           .then((res) => {
             console.log(res)
             setex.commit('setUser', res.data.result)
@@ -124,6 +125,7 @@ export default new Vuex.Store({
   },
   modules: {
     profile,
-    seller
+    seller,
+    product
   }
 })
