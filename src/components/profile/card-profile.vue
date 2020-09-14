@@ -68,7 +68,7 @@
                             <img class="rounded-circle" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
                         </div>
                         <input type="file" id="file" hidden>
-                        <label for="file" id="selector" class="btn btn-outline-secondary btn-sm rounded-pill my-3">Select Image</label>
+                        <label for="file" id="selector" class="btn btn-outline-secondary btn-sm rounded-pill my-3" style="font-size:12px">Select Image</label>
                     </div>
                 </div>
             </div>

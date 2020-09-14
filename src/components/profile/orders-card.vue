@@ -4,7 +4,7 @@
           <div class="card-header">
             <span class="d-flex">My Order</span>
             <div class="list d-flex justify-content-between">
-              <span class="click" @click="toggle">All items</span>
+              <span class="click" @click="toggle" v-bind:class="active">All items</span>
               <span class="click" @click="toggle">Not yet paid</span>
               <span class="click" @click="toggle">Packed</span>
               <span class="click" @click="toggle">Sent</span>
