@@ -31,7 +31,8 @@ const routes = [
   {
     path: '/category',
     name: 'Category',
-    component: Category
+    component: Category,
+    meta: { requiresVisitor: true }
   },
   {
     path: '/homepage',
@@ -54,27 +55,32 @@ const routes = [
   {
     path: '/checkout',
     name: 'Checkout',
-    component: Checkout
+    component: Checkout,
+    meta: { requiresAuth: true }
   },
   {
     path: '/mybag',
     name: 'Mybag',
-    component: Mybag
+    component: Mybag,
+    meta: { requiresAuth: true }
   },
   {
     path: '/product',
     name: 'Product',
-    component: Product
+    component: Product,
+    meta: { requiresAuth: true }
   },
   {
     path: '/seller',
     name: 'Seller',
-    component: Seller
+    component: Seller,
+    meta: { requiresAuth: true }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresAuth: true }
   }
 ]
 
