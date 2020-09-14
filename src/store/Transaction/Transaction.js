@@ -11,7 +11,7 @@ const mutations = {
     if (!isBag) {
       router.push('Product')
       const item = payload
-      state.Bags.push({ ...item, qty: 1 })
+      state.bags.push({ ...item, qty: 1 })
     } else {
       router.push('Product')
       state.bags = state.bags.filter((item) => {
@@ -27,6 +27,7 @@ const actions = {
 
 const getters = {
   getBag (state) {
+    console.log(state.bags)
     return state.bags
   }
 }

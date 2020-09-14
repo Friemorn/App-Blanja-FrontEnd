@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <ItemsCarts v-for="(item) in getBag" :key="item.idProduct"/>
+                    <ItemCarts v-for="(item) in getBag" :key="item.idProduct"/>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                     <div class="row no-gutters shadow px-3 py-3 rounded">
@@ -79,11 +79,16 @@
 
 <script>
 import NavbarAfter from '../../components/_base/NavbarAfter'
-
+import ItemCarts from '../../components/_base/ItemCarts'
+import { mapGetters } from 'vuex'
 export default {
   name: 'MyBag',
   components: {
-    NavbarAfter
+    NavbarAfter,
+    ItemCarts
+  },
+  computed: {
+    ...mapGetters(['getBag'])
   }
 }
 </script>
