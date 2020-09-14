@@ -5,6 +5,7 @@ import router from '../router/index'
 import profile from './profile'
 import seller from './seller'
 import product from './Product/Product'
+import transaction from './Transaction/Transaction'
 
 Vue.use(Vuex)
 
@@ -124,8 +125,13 @@ export default new Vuex.Store({
     }
   },
   modules: {
+<<<<<<< HEAD
     profile,
     seller,
     product
+=======
+    product,
+    transaction
+>>>>>>> 53c5d7f31c38a2e8d6f98555f027a7a2b01f32ed
   }
 })

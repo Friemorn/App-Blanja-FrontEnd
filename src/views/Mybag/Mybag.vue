@@ -1,6 +1,6 @@
 <template>
 <div>
-    <NavbarAfter/>
+<NavbarAfter/>
   <div class="container">
     <div class="row no-gutters content">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-left">
@@ -58,6 +58,7 @@
                             </div>
                         </div>
                     </div>
+                    <ItemsCarts v-for="(item) in getBag" :key="item.idProduct"/>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                     <div class="row no-gutters shadow px-3 py-3 rounded">

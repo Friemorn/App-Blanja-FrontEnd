@@ -1,11 +1,11 @@
 <template>
-    <div class="card bg-transparent">
+    <div class="card bg-transparent shadow-sm">
         <a class="nav-link" href="#">
-            <div class="image-container">
-                <img :src="data.image[1]" class="card-img-top" alt="blackforest">
+            <div class="image-container" @click="$emit('select-product')">
+                <img :src="data.image" class="card-img-top" alt="blackforest">
             </div>
             <div class="card-body">
-                <div class="title-product">{{data.nameProduct}}</div>
+                <div class="title-product">{{data.title}}</div>
                 <div class="price-product">{{data.price}}</div>
                 <div class="branch-product">{{data.nameBrand}}</div>
             </div>
@@ -43,11 +43,11 @@ export default {
     border-radius: 10px 10px 0 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .card {
     border: none;
-    flex-basis: 100%;
+    flex-basis: 19%;
     margin: 10px 10px 10px 0;
 }
 
