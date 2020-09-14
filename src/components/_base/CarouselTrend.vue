@@ -69,7 +69,16 @@ export default {
   border-radius: 10px;
   margin: 10px;
 }
-.label {
+.VueCarousel-slide img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.VueCarousel-pagination[data-v-438fd353]{
+  text-align: left;
+}
+label {
   position: absolute;
   top: 50%;
   left: 50%;
