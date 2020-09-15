@@ -1,6 +1,6 @@
 <template>
     <div class="order-template">
-        <div class="card">
+        <!-- <div class="card">
           <div class="card-header">
             <span class="d-flex">My Order</span>
             <div class="list d-flex justify-content-between">
@@ -20,6 +20,22 @@
             <h1 v-else-if="showing==='Completed'">Completed</h1>
             <h1 v-else-if="showing==='Order cancel'">Order cancel</h1>
           </div>
+        </div> -->
+        <div class="card">
+          <div class="card-header">
+            <h4 class="font-weight-bold">My Order</h4>
+            <div class="list d-flex justify-content-between">
+              <span v-for="(tab, index) in tabs" :key="index" @click="currentTab = index" :class="{active:currentTab === index}">{{tab}}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab" v-show="currentTab === 0">All Items</div>
+            <div class="tab" v-show="currentTab === 1">Not yet paid</div>
+            <div class="tab" v-show="currentTab === 2">Packed</div>
+            <div class="tab" v-show="currentTab === 3">Sent</div>
+            <div class="tab" v-show="currentTab === 4">Completed</div>
+            <div class="tab" v-show="currentTab === 5">Order Cancel</div>
+          </div>
         </div>
     </div>
 </template>
@@ -31,21 +47,15 @@ export default {
     return {
       showing: 'All items',
       active: false,
-      one: false
+      one: false,
+      currentTab: 0,
+      tabs: ['All items', 'Not yet paid', 'Packed', 'Sent', 'Completed', 'Order Cancel']
     }
   },
   methods: {
     toggle (e) {
       console.log(e.target.innerText)
       this.showing = e.target.innerText
-    }
-  },
-  computed: {
-    classess () {
-      return {
-        active: this.active,
-        one: this.one
-      }
     }
   }
 }
@@ -61,7 +71,11 @@ export default {
 .click {
   cursor: pointer;
 }
-.active {
-  border-bottom: 2px solid blue;
+div.list span {
+  cursor: pointer;
+}
+span.active{
+  border-bottom: 3px solid blue;
+  color: blue;
 }
 </style>
