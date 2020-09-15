@@ -15,10 +15,10 @@
                         <h4 class="text-left mb-4">Colors</h4>
                             <ul>
                                 <li>
-                                    <label>
+                                    <legend>
                                         <input type="checkbox" value="black" v-model="colors">
                                         <span class="swatch" style="background: #222"></span>
-                                    </label>
+                                    </legend>
                                 </li>
                                 <li>
                                     <label>
@@ -171,13 +171,22 @@ li {
     float: left;
     margin: 0 3px 0 3px;
 }
-label {
+/* label {
+    cursor: pointer;
+} */
+legend {
     cursor: pointer;
 }
-label input {
+/* label input {
+    display: none;
+} */
+legend input {
     display: none;
 }
-label input[type='checkbox']:checked + .swatch {
+/* label input[type='checkbox']:checked + .swatch {
+    box-shadow: inset 0 0 0 3px rgb(219, 209, 209);
+} */
+legend input[type='checkbox']:checked + .swatch {
     box-shadow: inset 0 0 0 3px rgb(219, 209, 209);
 }
 .swatch {

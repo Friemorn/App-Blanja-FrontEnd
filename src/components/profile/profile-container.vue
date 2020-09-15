@@ -4,7 +4,7 @@
             <div class="profile">
               <div class="profile-user d-flex mx-5 mt-5">
                 <div class="user-img">
-                  <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg" alt="">
+                  <img class="rounded-circle ml-4" src="../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg">
                 </div>
                 <div class="prof-update d-flex flex-column mx-2" v-for="profile in profiles" :key="profile.id">
                   <span>{{profile.name}}</span>
@@ -145,5 +145,4 @@ export default {
     margin: auto;
   }
 }
-
 </style>
