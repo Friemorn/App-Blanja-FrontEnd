@@ -67,8 +67,7 @@ const routes = [
   {
     path: '/product',
     name: 'Product',
-    component: Product,
-    meta: { requiresAuth: true }
+    component: Product
   },
   {
     path: '/seller',

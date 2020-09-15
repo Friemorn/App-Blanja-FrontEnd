@@ -28,6 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <router-link class="cart" to="/mybag">
+              <span class="badge badge-secondary" v-if="getBag.length">{{totalQty}}</span>
               <img src="../../assets/cart.png" alt="mybag">
             </router-link>
             <div class="notif" @click="NotifOn">
@@ -53,10 +54,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
+import { mapActions, mapGetters } from 'vuex'
+// import popper from '../_base/Popper'
 export default {
   name: 'NavbarAfter',
+  components: {
+    // popper
+  },
   data () {
     return {
       showNotif: false
@@ -86,6 +90,12 @@ export default {
       } else {
         this.showNotif = false
       }
+    }
+  },
+  computed: {
+    ...mapGetters(['getBag']),
+    totalQty () {
+      return this.getBag.reduce((a, b) => a + b.qty, 0)
     }
   }
 }
@@ -141,10 +151,20 @@ export default {
   width: 35px;
   margin: 0 10px;
 }
+.cart{
+  position: relative;
+}
+.badge-secondary{
+  position: absolute;
+  border-radius: 50%;
+  right: 0;
+  top: 0;
+  background-color: #273ac7;
+}
 .user {
   border: 2px solid #8E8E93;
   border-radius: 50%;
-  background-image: url('../../assets/d8p1wqo-3b4d78e8-db49-4a66-99c1-882a64c82be0.jpg');
+  background-image: url('../../assets/user.png');
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -158,6 +178,7 @@ export default {
 #notif{
   margin: 20px;
 }
+
 /* Tablet */
 @media only screen and (max-width: 768px) {
   .form-control {

@@ -30,7 +30,7 @@
       </div>
       <div class="row no-gutters">
           <CardProduct
-          v-for="(item) in allProducts" :key="item.idProduct"
+          v-for="(item) in allProducts" :key="item.id"
           :data="item"
           @select-product="addBag(item)"/>
       </div>
@@ -45,9 +45,10 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-xl-2 col-lg-12 col-md-2 col-sm-6 col-12 text-left d-flex flex-wrap" v-for="(item) in allProducts" :key="item.idProduct">
-          <CardProduct/>
-        </div>
+          <CardProduct
+          v-for="(item) in allProducts" :key="item.id"
+          :data="item"
+          @select-product="addBag(item)"/>
       </div>
     </div>
   </div>
